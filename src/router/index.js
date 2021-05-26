@@ -1,14 +1,21 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Plant from "../views/Plant_Page/Plant";
+import MotorGraph from "../views/Motor_Graph_Page/MotorGraph";
 
 Vue.use(VueRouter);
 
 const routes = [
-    // {
-    //     path: '/',
-    //     name: 'Home',
-    //     component: Home,
-    // },
+    {
+        path: '/home',
+        name: 'Home',
+        component: Plant,
+    },
+    {
+        path: '/home/graphPage',
+        name: 'MotorFraph',
+        component: MotorGraph,
+    },
     // {
     //     path: '/about',
     //     name: 'About',

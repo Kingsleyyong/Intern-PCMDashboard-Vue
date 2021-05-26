@@ -1,16 +1,18 @@
 <template>
     <v-app-bar color="gray">
         <v-spacer />
-        <v-text-field
-            placeholder="Search"
-            prepend-inner-icon="mdi-magnify"
-            class="shrink mt-6 mr-3"
-            filled
-            rounded
-            dense
-        ></v-text-field>
+
+        <v-btn icon>
+            <v-icon>mdi-cog-outline</v-icon>
+        </v-btn>
+        <v-btn icon>
+            <v-icon>mdi-note-text-outline</v-icon>
+        </v-btn>
         <v-btn icon>
             <v-icon>mdi-bell-outline</v-icon>
+        </v-btn>
+        <v-btn icon @click="goToHome">
+            <v-icon>mdi-home-outline</v-icon>
         </v-btn>
         <v-img
             class="ml-3 mr-3"
@@ -27,6 +29,11 @@ export default {
 
     data() {
         return {};
+    },
+    methods: {
+        goToHome() {
+            this.$router.push('/home');
+        },
     },
 };
 </script>

@@ -1,3 +1,831 @@
 {
-  "count": 0
+  "account": [
+    {
+      "id": 10001,
+      "username": "Tanand Hello",
+      "password": "Demo1234",
+      "location": {
+        "name": "Seremban",
+        "lat": 0,
+        "lon": 0,
+        "meterStatus": 1
+      }
+    }
+  ],
+  "overallMotorCalculation": {
+    "totalMotors": 500,
+    "motorInOperation": 400,
+    "totalPlantNormalMotor": 260,
+    "totalPlantCriticalMotor": 120,
+    "totalPlantWarningMotor": 120
+  },
+  "plant": [
+    {
+      "plantId": 1,
+      "totalMotor": 30,
+      "data": [
+        {
+          "name": "Normal",
+          "themeColor": "#00CD43",
+          "motorNum_Today": 10,
+          "motorNum_Ytd": 25,
+          "motorData": [
+            {
+              "id": 1,
+              "data": {
+                "predictHealth": {
+                  "condition": null,
+                  "benchmark": 1.52,
+                  "ytdScore": 325
+                },
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              },
+              "heatmapData": {
+                "timestamp": 1609502400,
+                "predictHealthScore": 0.94
+              }
+            },
+            {
+              "id": 2,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              },
+              "heatmapData": {
+                "timestamp": 1609502400,
+                "predictHealthScore": 0.97
+              }
+            },
+            {
+              "id": 3,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              },
+              "heatmapData": {
+                "timestamp": 1609502400,
+                "predictHealthScore": 0.90
+              }
+            },
+            {
+              "id": 4,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 5,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 6,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 7,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 8,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 9,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 10,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Warning",
+          "themeColor": "#FF9200",
+          "motorNum_Today": 10,
+          "motorNum_Ytd": 10,
+          "motorData": [
+            {
+              "id": 11,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 12,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 13,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 14,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 15,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 16,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 17,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 18,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 19,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 20,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Critical",
+          "themeColor": "#F60000",
+          "motorNum_Today": 10,
+          "motorNum_Ytd": 3,
+          "motorData": [
+            {
+              "id": 21,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 22,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 23,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 24,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 25,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 26,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 27,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 28,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 29,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            },
+            {
+              "id": 30,
+              "data": {
+                "vibration": {
+                  "condition": true,
+                  "benchmark": 1.32,
+                  "ytdScore": 175
+                },
+                "temperature": {
+                  "condition": false,
+                  "benchmark": 26.25343,
+                  "ytdScore": 27.7642
+                },
+                "normalize": {
+                  "condition": false,
+                  "benchmark": 266,
+                  "ytdScore": 287
+                },
+                "electric": {
+                  "condition": true,
+                  "benchmark": 331,
+                  "ytdScore": 290
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "predictiveFactor": {
+        "Vibrate": "mdi-vibrate",
+        "Temperature": "mdi-thermometer-lines",
+        "Normalization Hit Count": "mdi-transit-connection-horizontal",
+        "Energy Usage": "mdi-flash"
+      }
+    }
+  ],
+  "selectedPlant": "Plant 1",
+  "selectedPlantMotor": "Motor 01",
+  "firstMotorCompare": "Please Choose a MotorID",
+  "secondMotorCompare": "Please Choose a MotorID"
 }
