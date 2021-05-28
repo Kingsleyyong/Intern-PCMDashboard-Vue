@@ -13,12 +13,15 @@ export default {
         return {
             chartOptions: {
                 chart: {
+                    marginTop: 0,
                     type: 'pie',
                     backgroundColor: 'transparent',
                     height: 83 + '%',
                 },
 
                 credits: { enabled: false },
+
+                exporting: { enabled: false },
 
                 title: {
                     text: this.chartData[0] + '/' + this.totalMotor,

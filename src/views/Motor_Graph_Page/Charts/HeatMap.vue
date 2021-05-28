@@ -11,7 +11,7 @@ import heatmap from 'highcharts/modules/heatmap';
 heatmap(Highcharts);
 
 export default {
-    props: ['chartData'],
+    props: ['chartData', 'chartName'],
 
     watch: {
         series(newVal) {
@@ -34,25 +34,25 @@ export default {
             chartOptions: {
                 chart: {
                     type: 'heatmap',
+                    marginLeft: 250,
                 },
 
-                title: { text: null },
-
-                exporting: {
-                    enabled: true,
+                title: {
+                  widthAdjust: -1200,
+                  text: this.chartName,
                 },
 
-              xAxis: {
-                tickInterval: 5,
-                showFirstLabel: false,
-                labels: {
+                xAxis: {
+                    tickInterval: 5,
+                    showFirstLabel: false,
+                    labels: {
 
-                  y: 15,
-                  x: 0,
-                  format: 'Week {text}',
+                        y: 15,
+                        x: 0,
+                        format: 'Week {text}',
+                    },
+                    tickLength: 0,
                 },
-                tickLength: 0,
-              },
 
                 yAxis: {
                     categories: [
@@ -66,7 +66,6 @@ export default {
                     ],
                     title: null,
                     reversed: true,
-
                 },
 
                 colorAxis: {
@@ -85,17 +84,6 @@ export default {
                             color: '#ea232a', // red
                         },
                     ],
-                },
-
-                legend: {
-                    marginTop: 5,
-                    padding: 10,
-                    backgroundColor: '#303030',
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom',
-
-
                 },
 
                 tooltip: {

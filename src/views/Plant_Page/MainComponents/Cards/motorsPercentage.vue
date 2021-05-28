@@ -1,5 +1,5 @@
 <template>
-    <v-card width="33%" height="25%" @click="goToGraph(dataObj.name)">
+    <v-card width="33%" height="25%" @click="goToGraph(dataObj, plant, dataObj.name)">
         <v-card-title class="pa-2 d-flex justify-space-between" :style="background_Theme">
             <h3 class="">{{ dataObj.name }} Motor</h3>
             <v-dialog width="50%" overlay-color="grey lighten-3">
@@ -45,7 +45,7 @@ import MotorComparison from './ComparisonDialog';
 export default {
     name: 'MotorPercentage',
 
-    props: ['dataObj'],
+    props: ['dataObj', 'plant'],
 
     components: {
         MotorComparison,
@@ -74,8 +74,8 @@ export default {
         };
     },
     methods: {
-        goToGraph() {
-            this.$router.push('/home/graphPage');
+        goToGraph(obj, plantId, category) {
+            this.$router.push({ name: 'MotorGraph', params: { plantId, category } });
         },
     },
 };

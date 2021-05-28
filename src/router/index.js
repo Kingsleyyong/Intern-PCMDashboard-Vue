@@ -7,14 +7,15 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/home',
+        path: '/',
         name: 'Home',
         component: Plant,
     },
     {
-        path: '/home/graphPage',
-        name: 'MotorFraph',
+        path: '/graphPage/:plantId/:category',
+        name: 'MotorGraph',
         component: MotorGraph,
+        props: true
     },
     // {
     //     path: '/about',

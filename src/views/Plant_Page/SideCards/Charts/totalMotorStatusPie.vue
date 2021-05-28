@@ -14,6 +14,7 @@ export default {
         return {
             chartOptions: {
                 chart: {
+                    marginTop: 0,
                     type: 'pie',
                     backgroundColor: 'transparent',
                     height: 70 + '%',
@@ -23,13 +24,15 @@ export default {
 
                 title: null,
 
+                exporting: { enabled: false },
+
                 plotOptions: {
                     pie: {
                         shadow: true,
                         borderColor: null,
                         center: ['50%', '50%'],
                         dataLabels: {
-                            enabled: false
+                            enabled: false,
                         },
                         colors: ['#00FF43', '#F60000', '#FF9200'],
                     },

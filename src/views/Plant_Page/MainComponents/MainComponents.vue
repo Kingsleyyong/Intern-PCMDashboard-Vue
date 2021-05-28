@@ -7,6 +7,7 @@
                 v-for="(motor, index) in getPlantMotorData"
                 :key="index"
                 :data-obj="motor"
+                :plant="getCurrentSelectedPlant"
             />
         </v-row>
         <v-row class="ma-1 mt-2 d-flex justify-space-between">

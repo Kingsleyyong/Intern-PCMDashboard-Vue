@@ -3,7 +3,10 @@ import dayjs from 'dayjs';
 export default {
     getPlantCount(state) {
         let array = [];
-        for (let i = state.plant[0].plantId; i <= 50; i++) array.push('Plant ' + i);
+        for (let i = state.plant[0].plantId; i <= 15; i++) {
+            let name = i > 0 && i < 10 ? 'Plant 0' + i : 'Plant ' + i;
+            array.push(name);
+        }
 
         return array;
     },
@@ -148,12 +151,12 @@ export default {
                 health,
                 path = state.plant[0].data,
                 dataObj = [],
-                x = 0,
+                // x = 0,
                 y = 0;
 
             for (let i = 0; i < path.length; i++) {
                 for (let j = 0; j < path[i].motorData.length; j++) {
-                    if (path[i].motorData[j].id === motorId){
+                    if (path[i].motorData[j].id === motorId) {
                         timestamp = path[i].motorData[j].heatmapData.timestamp * 1000;
                         timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
                         health = path[i].motorData[j].heatmapData.predictHealthScore;
@@ -161,10 +164,12 @@ export default {
                 }
             }
 
+            let week = dayjs(timestamp).week();
+
             if (timestamp_dayOfWeek !== 1) {
                 let data = [];
                 for (let j = 0; j < timestamp_dayOfWeek - 1; j++) {
-                    data.push([x, y, null]);
+                    data.push([week, y, null]);
                     y++;
                 }
                 dataObj.push({
@@ -182,9 +187,9 @@ export default {
 
                 let data = [];
                 for (let j = 0; j < daysInMonth; j++) {
-                    data.push([x, y, health]);
+                    data.push([week, y, health]);
                     if (y === 6) {
-                        x += 1;
+                        week += 1;
                         y = 0;
                     } else {
                         y++;
@@ -197,6 +202,7 @@ export default {
                     data: data,
                 });
             }
+            console.log(dataObj);
             return dataObj;
         };
     },
@@ -239,6 +245,41 @@ export default {
                     return arr;
                 }
             }
+        };
+    },
+    getMotorSortByCategory(state) {
+        return (category) => {
+            let path = state.plant[0].data,
+                arr = [];
+            for (let i = 0; i < path.length; i++) {
+                if (path[i].name === category) {
+                    for (let j = 0; j < path[i].motorData.length; j++) {
+                        let id =
+                            path[i].motorData[j].id > 0 && path[i].motorData[j].id < 10
+                                ? 'Motor 0' + path[i].motorData[j].id
+                                : 'Motor ' + path[i].motorData[j].id;
+                        arr.push(id);
+                    }
+                }
+            }
+            return arr;
+        };
+    },
+    getCategoryThemeColor(state) {
+        return (plantId, category) => {
+            let path = state.plant[0],
+                color = '';
+
+            plantId = parseInt(plantId.substr(6,2));
+
+            if (path.plantId === plantId) {
+                for (let i = 0; i < path.data.length; i++) {
+                    if (path.data[i].name === category) {
+                        color = path.data[i].themeColor;
+                    }
+                }
+            }
+            return color;
         };
     },
 };
