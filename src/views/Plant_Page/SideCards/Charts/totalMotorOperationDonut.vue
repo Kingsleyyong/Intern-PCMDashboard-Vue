@@ -27,6 +27,7 @@ export default {
                     text: this.chartData[0] + '/' + this.totalMotor,
                     align: 'center',
                     verticalAlign: 'middle',
+                    x: 0,
                     y: 15,
                     style: {
                         color: '#ffffff',
@@ -38,6 +39,7 @@ export default {
                     text: (this.chartData[0] / this.totalMotor) * 100 + '%',
                     align: 'center',
                     verticalAlign: 'middle',
+                    x: 0,
                     y: 40,
                     style: {
                         color: '#ffffff',

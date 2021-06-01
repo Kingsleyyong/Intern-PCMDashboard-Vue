@@ -17,10 +17,7 @@
                 v-for="(i, index) in getPredictPlantMotor"
                 :key="index"
             >
-                <span
-                    v-for="(element, index) in i"
-                    :key="index"
-                >
+                <span v-for="(element, index) in i" :key="index">
                     <span v-if="index === 0">{{ element }}</span>
                     <span v-else-if="index !== 0 && element === true">
                         <v-icon color="green">fa-check-circle</v-icon>
@@ -31,6 +28,10 @@
                 </span>
             </v-row>
         </v-card-text>
+        <v-card-subtitle class="pa-2 caption font-weight-bold font-italic">
+            *Health condition is by individual or combination of pump motor vibration, energy
+            pattern, pressure and flow
+        </v-card-subtitle>
     </v-card>
 </template>
 
