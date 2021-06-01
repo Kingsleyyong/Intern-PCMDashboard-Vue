@@ -214,39 +214,49 @@ export default {
     },
     getComparisonData(state) {
         return (motorID, factor) => {
-            motorID = parseInt(motorID.substr(6, 2));
-            console.log(motorID, factor);
-            let path = state.plant[0].motorData;
-            for (let i = 0; i < path.length; i++) {
-                if (path[i].id === motorID) {
-                    let arr = [];
-                    switch (factor) {
-                        case 1: //health
-                            arr.push(path[i].data.predictHealth.benchmark);
-                            arr.push(path[i].data.predictHealth.ytdScore);
-                            break;
-                        case 2: //vibration
-                            arr.push(path[i].data.vibration.benchmark);
-                            arr.push(path[i].data.vibration.ytdScore);
-                            break;
-                        case 3: //temp
-                            arr.push(path[i].data.temperature.benchmark);
-                            arr.push(path[i].data.temperature.ytdScore);
-                            break;
-                        case 4: //normalization
-                            arr.push(path[i].data.normalize.benchmark);
-                            arr.push(path[i].data.normalize.ytdScore);
-                            break;
-                        case 5: //electric
-                            arr.push(path[i].data.electric.benchmark);
-                            arr.push(path[i].data.electric.ytdScore);
-                            break;
+            let obj = {},
+                arr = [];
+
+            if (motorID.substr(0, 5) === 'Motor') {
+                motorID = parseInt(motorID.substr(6, 2));
+
+                let path = state.plant[0].data;
+                for (let i = 0; i < path.length; i++) {
+                    for (let j = 0; j < path[i].motorData.length; j++) {
+                        if (path[i].motorData[j].id === motorID) {
+                            obj = path[i].motorData[j].data;
+                        }
                     }
-                    return arr;
+                }
+                switch (factor) {
+                    case 1: //health
+                        arr.push(obj.predictHealth.benchmark);
+                        arr.push(obj.predictHealth.ytdScore);
+                        break;
+                    case 2: //vibration
+                        arr.push(obj.vibration.benchmark);
+                        arr.push(obj.vibration.ytdScore);
+                        break;
+                    case 3: //temp
+                        arr.push(obj.temperature.benchmark);
+                        arr.push(obj.temperature.ytdScore);
+                        break;
+                    case 4: //normalization
+                        arr.push(obj.normalize.benchmark);
+                        arr.push(obj.normalize.ytdScore);
+                        break;
+                    case 5: //electric
+                        arr.push(obj.electric.benchmark);
+                        arr.push(obj.electric.ytdScore);
+                        break;
                 }
             }
+            // console.log(motorID, factor);
+
+            return arr;
         };
     },
+
     getMotorSortByCategory(state) {
         return (category) => {
             let path = state.plant[0].data,
@@ -285,7 +295,6 @@ export default {
     getSelectedPlantMotor_GraphPage(state) {
         return state.selectedPlantMotor_GraphPage;
     },
-
     getDailyLineChart(state) {
         return (motor, graphName) => {
             let path = state.plant[0].data,
@@ -337,7 +346,6 @@ export default {
             };
         };
     },
-
     getWeeklyScatterLineChart(state) {
         return (motor, graphName) => {
             let path = state.plant[0].data,
@@ -404,7 +412,6 @@ export default {
             };
         };
     },
-
     getMonthlyHeatmapChart(state) {
         return (motor, graphName) => {
             let motorId = parseInt(motor.substr(6, 2)),
