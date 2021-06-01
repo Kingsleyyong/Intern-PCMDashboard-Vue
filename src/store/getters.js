@@ -46,7 +46,7 @@ export default {
     },
 
     getCurrentSelectedPlantMotor(state) {
-        return state.selectedPlantMotor;
+        return state.selectedPlantMotor_HeatMap;
     },
 
     getPlantMotorData(state) {
@@ -157,9 +157,9 @@ export default {
             for (let i = 0; i < path.length; i++) {
                 for (let j = 0; j < path[i].motorData.length; j++) {
                     if (path[i].motorData[j].id === motorId) {
-                        timestamp = path[i].motorData[j].heatmapData.timestamp * 1000;
+                        timestamp = path[i].motorData[j].data.predictHealth.timestamp * 1000;
                         timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
-                        health = path[i].motorData[j].heatmapData.predictHealthScore;
+                        health = path[i].motorData[j].data.predictHealth.predictHealthScore;
                     }
                 }
             }
@@ -194,7 +194,7 @@ export default {
                     } else {
                         y++;
                     }
-                    health -= 0.0007;
+                    health -= 0.07;
                     timestamp += 86400000;
                 }
                 dataObj.push({
@@ -270,7 +270,7 @@ export default {
             let path = state.plant[0],
                 color = '';
 
-            plantId = parseInt(plantId.substr(6,2));
+            plantId = parseInt(plantId.substr(6, 2));
 
             if (path.plantId === plantId) {
                 for (let i = 0; i < path.data.length; i++) {
@@ -280,6 +280,207 @@ export default {
                 }
             }
             return color;
+        };
+    },
+    getSelectedPlantMotor_GraphPage(state) {
+        return state.selectedPlantMotor_GraphPage;
+    },
+
+    getDailyLineChart(state) {
+        return (motor, graphName) => {
+            let path = state.plant[0].data,
+                motorId = parseInt(motor.substr(6, 2)),
+                obj,
+                xAxis = [],
+                benchmark = [],
+                yesterday = [],
+                current = [];
+
+            for (let i = 0; i < 24; i++) {
+                if (i < 10) {
+                    xAxis.push('0' + i + ':00');
+                } else {
+                    xAxis.push(i + ':00');
+                }
+            }
+
+            graphName =
+                graphName === 'Predicted Health'
+                    ? 'predictHealth'
+                    : graphName === 'Vibration'
+                    ? 'vibration'
+                    : graphName === 'Temperature'
+                    ? 'temperature'
+                    : graphName === 'Normalization Hit Count'
+                    ? 'normalize'
+                    : 'electric';
+
+            for (let i = 0; i < path.length; i++) {
+                for (let j = 0; j < path[i].motorData.length; j++) {
+                    if (path[i].motorData[j].id === motorId) {
+                        obj = path[i].motorData[j].data[graphName];
+                    }
+                }
+            }
+
+            for (let i = 0; i < xAxis.length; i++) {
+                benchmark.push(obj.benchmark);
+                yesterday.push(obj.ytdScore - (Math.floor(Math.random() * 401) + i));
+                current.push(obj.ytdScore + (Math.floor(Math.random() * 401) + i));
+            }
+
+            return {
+                benchmark: benchmark,
+                yesterday: yesterday,
+                current: current,
+                xAxis: xAxis,
+            };
+        };
+    },
+
+    getWeeklyScatterLineChart(state) {
+        return (motor, graphName) => {
+            let path = state.plant[0].data,
+                motorId = parseInt(motor.substr(6, 2)),
+                obj,
+                xAxis = [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                ],
+                x = -0.3,
+                currentData = {},
+                benchmark = [],
+                current = [],
+                weekNo = 0;
+
+            graphName =
+                graphName === 'Predicted Health'
+                    ? 'predictHealth'
+                    : graphName === 'Vibration'
+                    ? 'vibration'
+                    : graphName === 'Temperature'
+                    ? 'temperature'
+                    : graphName === 'Normalization Hit Count'
+                    ? 'normalize'
+                    : 'electric';
+
+            for (let i = 0; i < path.length; i++) {
+                for (let j = 0; j < path[i].motorData.length; j++) {
+                    if (path[i].motorData[j].id === motorId) {
+                        obj = path[i].motorData[j].data[graphName];
+                    }
+                }
+            }
+
+            for (let i = 0; i < xAxis.length; i++) {
+                benchmark.push(obj.benchmark);
+                for (let j = 0; j < 4; j++) {
+                    weekNo += 1;
+                    currentData = {
+                        x: x,
+                        y: obj.ytdScore + (Math.floor(Math.random() * 401) + i),
+                    };
+                    x = Math.round((x + 0.2) * 10) / 10;
+                    if (j === 3) x = Math.round((x + 0.2) * 10) / 10;
+
+                    current.push(currentData);
+                }
+            }
+
+            return {
+                benchmark: benchmark,
+                current: current,
+                xAxis: xAxis,
+            };
+        };
+    },
+
+    getMonthlyHeatmapChart(state) {
+        return (motor, graphName) => {
+            let motorId = parseInt(motor.substr(6, 2)),
+                obj = {},
+                timestamp,
+                timestamp_dayOfWeek,
+                percentage,
+                path = state.plant[0].data,
+                dataObj = [],
+                // x = 0,
+                y = 0;
+
+            graphName =
+                graphName === 'Predicted Health'
+                    ? 'predictHealth'
+                    : graphName === 'Vibration'
+                    ? 'vibration'
+                    : graphName === 'Temperature'
+                    ? 'temperature'
+                    : graphName === 'Normalization Hit Count'
+                    ? 'normalize'
+                    : 'electric';
+
+            for (let i = 0; i < path.length; i++) {
+                for (let j = 0; j < path[i].motorData.length; j++) {
+                    if (path[i].motorData[j].id === motorId) {
+                        obj = path[i].motorData[j].data[graphName];
+                    }
+                }
+            }
+            console.log(obj);
+
+            timestamp = obj.timestamp * 1000;
+            timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
+            percentage = (obj.ytdScore / obj.benchmark) * 100;
+
+            let week = dayjs(timestamp).week();
+
+            if (timestamp_dayOfWeek !== 1) {
+                let data = [];
+                for (let j = 0; j < timestamp_dayOfWeek - 1; j++) {
+                    data.push([week, y, null]);
+                    y++;
+                }
+                dataObj.push({
+                    month: 'NONE',
+                    data: data,
+                });
+            }
+
+            for (let i = 1; i <= 12; i++) {
+                let daysInMonth = new Date(
+                    parseInt(dayjs(timestamp).format('YYYY')),
+                    i,
+                    0
+                ).getDate();
+
+                let data = [];
+                for (let j = 0; j < daysInMonth; j++) {
+                    data.push([week, y, percentage]);
+                    if (y === 6) {
+                        week += 1;
+                        y = 0;
+                    } else {
+                        y++;
+                    }
+                    percentage -= 0.07;
+                    timestamp += 86400000;
+                }
+                dataObj.push({
+                    month: dayjs(timestamp - 86400000).format('MMMM'),
+                    data: data,
+                });
+            }
+            console.log(dataObj);
+            return dataObj;
         };
     },
 };

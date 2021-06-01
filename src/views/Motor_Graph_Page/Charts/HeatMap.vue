@@ -38,15 +38,14 @@ export default {
                 },
 
                 title: {
-                  widthAdjust: -1200,
-                  text: this.chartName,
+                    widthAdjust: -1200,
+                    text: this.chartName,
                 },
 
                 xAxis: {
                     tickInterval: 5,
                     showFirstLabel: false,
                     labels: {
-
                         y: 15,
                         x: 0,
                         format: 'Week {text}',
@@ -71,19 +70,25 @@ export default {
                 colorAxis: {
                     dataClasses: [
                         {
-                            to: 0.74,
+                            to: 74,
                             color: '#03a9f4', // blue
                         },
                         {
-                            from: 0.74,
-                            to: 0.9,
+                            from: 74,
+                            to: 90,
                             color: '#28a745', // green
                         },
                         {
-                            from: 0.9,
+                            from: 90,
                             color: '#ea232a', // red
                         },
                     ],
+                },
+
+                legend: {
+                    labelFormatter: function () {
+                        return this.name + ' %';
+                    },
                 },
 
                 tooltip: {
@@ -100,7 +105,7 @@ export default {
 
                         let /*xName = getPointCategoryName(this.point, 'x'),*/
                             yName = getPointCategoryName(this.point, 'y'),
-                            data = (this.point.value * 100).toFixed(2) + '%';
+                            data = (this.point.value).toFixed(2) + '%';
                         return yName + ' ' + month + ': ' + data;
                     },
                 },

@@ -4,7 +4,7 @@ export default {
     },
 
     currentPlantMotorSelected(state, plant) {
-        state.selectedPlantMotor = plant;
+        state.selectedPlantMotor_HeatMap = plant;
     },
 
     compareColumn1(state, plant) {
@@ -13,5 +13,9 @@ export default {
 
     compareColumn2(state, plant) {
         state.secondMotorCompare = plant;
+    },
+
+    currentPlantMotorSelected_GraphPage(state, plant) {
+        state.selectedPlantMotor_GraphPage = plant;
     },
 };

@@ -1,7 +1,7 @@
 <template>
     <v-main>
         <Header />
-        <Toolbar :list="getPlantCount" v-on:setCurrentPlant="currentPlant" />
+        <Toolbar :list="getPlantCount" v-on:setCurrentPlantORMotor="currentPlant" />
         <v-row class="ma-0">
             <v-col cols="2">
                 <SideCard />

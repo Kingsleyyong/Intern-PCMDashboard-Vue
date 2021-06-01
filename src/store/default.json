@@ -34,113 +34,140 @@
               "id": 1,
               "data": {
                 "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
                   "condition": null,
-                  "benchmark": 1.52,
-                  "ytdScore": 325
+                  "benchmark": 500,
+                  "ytdScore": 470
                 },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
-              },
-              "heatmapData": {
-                "timestamp": 1609502400,
-                "predictHealthScore": 0.94
               }
             },
             {
               "id": 2,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
-              },
-              "heatmapData": {
-                "timestamp": 1609502400,
-                "predictHealthScore": 0.97
               }
             },
             {
               "id": 3,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
-              },
-              "heatmapData": {
-                "timestamp": 1609502400,
-                "predictHealthScore": 0.90
               }
             },
             {
               "id": 4,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -150,22 +177,33 @@
             {
               "id": 5,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -175,22 +213,33 @@
             {
               "id": 6,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -200,22 +249,33 @@
             {
               "id": 7,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -225,22 +285,33 @@
             {
               "id": 8,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -250,22 +321,33 @@
             {
               "id": 9,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -275,22 +357,33 @@
             {
               "id": 10,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -308,22 +401,33 @@
             {
               "id": 11,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -333,22 +437,33 @@
             {
               "id": 12,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -358,22 +473,33 @@
             {
               "id": 13,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -383,22 +509,33 @@
             {
               "id": 14,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -408,22 +545,33 @@
             {
               "id": 15,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -433,22 +581,33 @@
             {
               "id": 16,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -458,22 +617,33 @@
             {
               "id": 17,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -483,22 +653,33 @@
             {
               "id": 18,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -508,22 +689,33 @@
             {
               "id": 19,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -533,22 +725,33 @@
             {
               "id": 20,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -566,22 +769,33 @@
             {
               "id": 21,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -591,22 +805,33 @@
             {
               "id": 22,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -616,22 +841,33 @@
             {
               "id": 23,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -641,22 +877,33 @@
             {
               "id": 24,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -666,22 +913,33 @@
             {
               "id": 25,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -691,22 +949,33 @@
             {
               "id": 26,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -716,22 +985,33 @@
             {
               "id": 27,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -741,22 +1021,33 @@
             {
               "id": 28,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -766,22 +1057,33 @@
             {
               "id": 29,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -791,22 +1093,33 @@
             {
               "id": 30,
               "data": {
+                "predictHealth": {
+                  "timestamp": 1609502400,
+                  "predictHealthScore": 96,
+                  "condition": null,
+                  "benchmark": 500,
+                  "ytdScore": 470
+                },
                 "vibration": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
+                  "timestamp": 1609502400,
                   "condition": false,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
+                  "timestamp": 1609502400,
                   "condition": true,
                   "benchmark": 331,
                   "ytdScore": 290
@@ -824,8 +1137,9 @@
       }
     }
   ],
-  "selectedPlant": "Plant 1",
-  "selectedPlantMotor": "Motor 01",
+  "selectedPlant": "Plant 01",
+  "selectedPlantMotor_HeatMap": "Motor 01",
   "firstMotorCompare": "Please Choose a MotorID",
-  "secondMotorCompare": "Please Choose a MotorID"
+  "secondMotorCompare": "Please Choose a MotorID",
+  "selectedPlantMotor_GraphPage": "Motor 01"
 }

@@ -34,11 +34,11 @@ export default {
     components: {
         HeatMap,
     },
-    watch: {
-        getCurrentSelectedPlantMotor(newVal) {
-            this.renewHeatMap(newVal);
-        },
-    },
+    // watch: {
+    //     getCurrentSelectedPlantMotor(newVal) {
+    //         this.renewHeatMap(newVal);
+    //     },
+    // },
     computed: {
         ...mapGetters(['getPlantMotorID', 'getCurrentSelectedPlantMotor', 'getMotorHeatmapData']),
     },

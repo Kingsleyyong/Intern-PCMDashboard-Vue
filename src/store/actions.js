@@ -18,4 +18,9 @@ export default {
         console.log(plant);
         commit('compareColumn2', plant);
     },
+
+    async currentPlantMotor_GraphPage({ commit }, plant) {
+        console.log(plant);
+        commit('currentPlantMotorSelected_GraphPage', plant);
+    },
 };

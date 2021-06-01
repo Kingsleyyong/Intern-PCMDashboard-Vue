@@ -1,11 +1,19 @@
 <template>
     <v-card class="ma-2 mt-5 rounded">
-        <LineChart :chartName="chartTitle" v-if="line" />
-        <BubbleLine :chartName="chartTitle" v-if="bubbleLine" />
+        <LineChart
+            :chartName="chartTitle"
+            :chartData="getDailyLineChart(getSelectedPlantMotor_GraphPage, chartTitle)"
+            v-if="line"
+        />
+        <ScatterLine
+            :chartData="getWeeklyScatterLineChart(getSelectedPlantMotor_GraphPage, chartTitle)"
+            :chartName="chartTitle"
+            v-if="bubbleLine"
+        />
         <HeatMap
             :chartName="chartTitle"
+            :chartData="getMonthlyHeatmapChart(getSelectedPlantMotor_GraphPage, chartTitle)"
             v-if="heatmap"
-            :chartData="getMotorHeatmapData(getCurrentSelectedPlantMotor)"
         />
         <v-row class="col-4 align-center d-flex justify-end">
             <v-btn-toggle rounded group>
@@ -19,7 +27,7 @@
 
 <script>
 import LineChart from '../Charts/Line';
-import BubbleLine from '../Charts/BubbleLine';
+import ScatterLine from '../Charts/ScatterLine';
 import HeatMap from '../Charts/HeatMap';
 
 import { mapGetters } from 'vuex';
@@ -27,12 +35,18 @@ import { mapGetters } from 'vuex';
 export default {
     components: {
         LineChart,
-        BubbleLine,
+        ScatterLine,
         HeatMap,
     },
 
     computed: {
-        ...mapGetters(['getCurrentSelectedPlantMotor', 'getMotorHeatmapData']),
+        ...mapGetters([
+            'getSelectedPlantMotor_GraphPage',
+            'getMotorHeatmapData',
+            'getDailyLineChart',
+            'getWeeklyScatterLineChart',
+            'getMonthlyHeatmapChart',
+        ]),
     },
 
     data() {
