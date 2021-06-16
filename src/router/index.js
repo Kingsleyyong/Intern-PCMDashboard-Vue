@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Plant from "../views/Plant_Page/Plant";
-import MotorGraph from "../views/Motor_Graph_Page/MotorGraph";
+import MachineGraph from "../views/Machine_Graph_Page/MachineGraph";
 
 Vue.use(VueRouter);
 
@@ -13,8 +13,8 @@ const routes = [
     },
     {
         path: '/graphPage/:plantId/:category',
-        name: 'MotorGraph',
-        component: MotorGraph,
+        name: 'MachineGraph',
+        component: MachineGraph,
         props: true
     },
     // {

@@ -8,7 +8,7 @@
 import { Chart } from 'highcharts-vue';
 
 export default {
-    props: ['chartData', 'totalMotor'],
+    props: ['chartData', 'totalMachine'],
     components: { highcharts: Chart },
     data() {
         return {
@@ -43,19 +43,19 @@ export default {
                 },
                 series: [
                     {
-                        name: 'Motor Status',
+                        name: 'Machine Status',
                         colorByPoint: true,
                         data: [
                             {
-                                name: 'Normal Motor',
+                                name: 'Normal Machine',
                                 y: this.chartData[0],
                             },
                             {
-                                name: 'Critical Motor',
+                                name: 'Critical Machine',
                                 y: this.chartData[1],
                             },
                             {
-                                name: 'Warning Motor',
+                                name: 'Warning Machine',
                                 y: this.chartData[2],
                             },
                         ],

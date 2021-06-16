@@ -2,9 +2,15 @@
     <v-app-bar color="gray">
         <v-spacer />
 
-        <v-btn icon>
-            <v-icon>mdi-cog-outline</v-icon>
-        </v-btn>
+        <v-dialog v-model="dialog" fullscreen >
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on">
+                    <v-icon>mdi-cog-outline</v-icon>
+                </v-btn>
+            </template>
+            <MaintenanceDialog @input="dialog = false"/>
+        </v-dialog>
+
         <v-btn icon>
             <v-icon>mdi-note-text-outline</v-icon>
         </v-btn>
@@ -24,15 +30,24 @@
 </template>
 
 <script>
+import MaintenanceDialog from '../views/Settings_Dialog/SettingsDialog';
+
 export default {
     name: 'Header',
 
     data() {
-        return {};
+        return {
+            dialog: false,
+        };
     },
+
+    components: {
+        MaintenanceDialog,
+    },
+
     methods: {
         goToHome() {
-            this.$router.push({name: 'Home'});
+            this.$router.push({ name: 'Home' });
         },
     },
 };

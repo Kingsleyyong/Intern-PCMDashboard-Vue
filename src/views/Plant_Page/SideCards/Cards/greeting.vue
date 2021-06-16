@@ -37,7 +37,7 @@ export default {
 
     methods: {
         getTime() {
-            return dayjs().format('HH:MM:ss');
+            return dayjs().format('HH:mm:ss');
         },
         getDate() {
             return dayjs().format('DD MMM YYYY');

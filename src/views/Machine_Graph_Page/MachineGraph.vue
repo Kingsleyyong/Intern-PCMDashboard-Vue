@@ -2,12 +2,11 @@
     <v-main class="mb-3">
         <Header />
         <Toolbar
-            :list="getMotorSortByCategory($route.params.category)"
+            :list="getMachineSortByCategory($route.params.category)"
             :themeColor="getCategoryThemeColor('Plant 1', $route.params.category)"
             :plantId="$route.params.plantId"
-            v-on:setCurrentPlantORMotor="currentPlantMotor_GraphPage"
+            v-on:setCurrentPlantORMachine="currentPlantMachine_GraphPage"
         />
-        <!--        {{ getSelectedPlantMotor_GraphPage }}-->
 
         <PredictHealth />
         <Vibration />
@@ -25,7 +24,7 @@ import PredictHealth from './Cards/PredictedHealth';
 import Vibration from './Cards/Vibration';
 import Temperature from './Cards/Temperature';
 import NormalizationHitCount from './Cards/NormalizationHitCount';
-import EnergyUsage from "./Cards/EnergyUsage";
+import EnergyUsage from './Cards/EnergyUsage';
 
 export default {
     components: {
@@ -35,19 +34,19 @@ export default {
         Vibration,
         Temperature,
         NormalizationHitCount,
-        EnergyUsage
+        EnergyUsage,
     },
 
     computed: {
         ...mapGetters([
-            'getMotorSortByCategory',
+            'getMachineSortByCategory',
             'getCategoryThemeColor',
-            'getSelectedPlantMotor_GraphPage',
+            'getSelectedPlantMachine_GraphPage',
         ]),
     },
 
     methods: {
-        ...mapActions(['currentPlantMotor_GraphPage']),
+        ...mapActions(['currentPlantMachine_GraphPage']),
     },
 };
 </script>

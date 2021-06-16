@@ -11,7 +11,7 @@
             <v-tab
                 v-for="tag in list"
                 :key="tag"
-                v-on:click="$emit('setCurrentPlantORMotor', tag)"
+                v-on:click="$emit('setCurrentPlantORMachine', tag)"
                 class="ml-2 mr-2"
                 :style="text_Theme"
             >

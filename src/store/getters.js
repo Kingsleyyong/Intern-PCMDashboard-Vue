@@ -19,25 +19,25 @@ export default {
         return state.account[0].location;
     },
 
-    getMotorOperation(state) {
+    getMachineOperation(state) {
         let array = [];
-        array.push(state.overallMotorCalculation.motorInOperation);
+        array.push(state.overallMachineCalculation.machineInOperation);
         array.push(
-            state.overallMotorCalculation.totalMotors -
-                state.overallMotorCalculation.motorInOperation
+            state.overallMachineCalculation.totalMachines -
+                state.overallMachineCalculation.machineInOperation
         );
         return array;
     },
 
-    getTotalMotor(state) {
-        return state.overallMotorCalculation.totalMotors;
+    getTotalMachine(state) {
+        return state.overallMachineCalculation.totalMachines;
     },
 
-    getMotorStatus(state) {
+    getMachineStatus(state) {
         let array = [];
-        array.push(state.overallMotorCalculation.totalPlantNormalMotor);
-        array.push(state.overallMotorCalculation.totalPlantCriticalMotor);
-        array.push(state.overallMotorCalculation.totalPlantWarningMotor);
+        array.push(state.overallMachineCalculation.totalPlantNormalMachines);
+        array.push(state.overallMachineCalculation.totalPlantCriticalMachines);
+        array.push(state.overallMachineCalculation.totalPlantWarningMachines);
         return array;
     },
 
@@ -45,107 +45,137 @@ export default {
         return state.selectedPlant;
     },
 
-    getCurrentSelectedPlantMotor(state) {
-        return state.selectedPlantMotor_HeatMap;
+    getCurrentSelectedPlantMachine(state) {
+        return state.selectedPlantMachine_HeatMap;
     },
 
-    getPlantMotorData(state) {
+    getPlantMachineData(state) {
         return state.plant[0].data;
     },
-    getPlantMotorID(state) {
-        let motorId = [],
-            normalPath = state.plant[0].data[0].motorData,
-            warningPath = state.plant[0].data[1].motorData,
-            criticalPath = state.plant[0].data[2].motorData;
+    getPlantMachineID(state) {
+        let machineId = [],
+            normalPath = state.plant[0].data[0].machineData,
+            warningPath = state.plant[0].data[1].machineData,
+            criticalPath = state.plant[0].data[2].machineData;
         for (let i = 0; i < normalPath.length; i++) {
             let data =
                 normalPath[i].id > 0 && normalPath[i].id < 10
                     ? '0' + normalPath[i].id
                     : normalPath[i].id;
-            motorId.push('Motor ' + data);
+            machineId.push('Machine ' + data);
         }
         for (let i = 0; i < warningPath.length; i++) {
             let data =
                 warningPath[i].id > 0 && warningPath[i].id < 10
                     ? '0' + warningPath[i].id
                     : warningPath[i].id;
-            motorId.push('Motor ' + data);
+            machineId.push('Machine ' + data);
         }
         for (let i = 0; i < criticalPath.length; i++) {
             let data =
                 criticalPath[i].id > 0 && criticalPath[i].id < 10
                     ? '0' + criticalPath[i].id
                     : criticalPath[i].id;
-            motorId.push('Motor ' + data);
+            machineId.push('Machine ' + data);
         }
-        return motorId;
+        return machineId;
     },
 
     getPredictedFactor(state) {
-        return state.plant[0].predictiveFactor;
+        return [
+            {
+                text: 'Machine ID',
+                align: 'center',
+                sortable: false,
+                value: 'id',
+                width: '7rem',
+            },
+            {
+                text: state.plant[0].predictiveFactor['Vibrate'],
+                value: 'vibrate',
+                align: 'center',
+                width: '5rem',
+            },
+            {
+                text: state.plant[0].predictiveFactor['Temperature'],
+                value: 'temp',
+                align: 'center',
+                width: '5rem',
+            },
+            {
+                text: state.plant[0].predictiveFactor['Normalization Hit Count'],
+                value: 'normalize',
+                align: 'center',
+                width: '5rem',
+            },
+            {
+                text: state.plant[0].predictiveFactor['Energy Usage'],
+                value: 'energy',
+                align: 'center',
+                width: '5rem',
+            },
+            // {
+            //     text: state.plant[0].predictiveFactor['Energy Usage'],
+            //     value: 'temporary',
+            //     align: 'center',
+            //     width: '5rem',
+            // },
+        ];
     },
 
-    getPredictPlantMotor(state) {
-        let arr = [],
-            motorId,
-            dataName,
-            vibration,
-            temp,
-            normalize,
-            electric;
+    getPredictPlantMachine(state) {
+        let arr = [];
 
-        let normalPath = state.plant[0].data[0].motorData,
-            warningPath = state.plant[0].data[1].motorData,
-            criticalPath = state.plant[0].data[2].motorData;
+        const getPath = (status) => {
+            return state.plant[0].data
+                .filter((data) => data.name === status)
+                .map((data) => {
+                    data.machineData.map((machine) => {
+                        arr.push({
+                            id:
+                                machine.id > 0 && machine.id < 10
+                                    ? 'Machine 0' + machine.id
+                                    : 'Machine ' + machine.id,
+                            vibrate:
+                                machine.data.vibration != null &&
+                                machine.data.vibration.percentage != null
+                                    ? machine.data.vibration.percentage
+                                    : '-',
+                            temp:
+                                machine.data.temperature != null &&
+                                machine.data.temperature.percentage != null
+                                    ? machine.data.temperature.percentage
+                                    : '-',
+                            normalize:
+                                machine.data.normalize != null &&
+                                machine.data.normalize.percentage != null
+                                    ? machine.data.normalize.percentage
+                                    : '-',
+                            energy:
+                                machine.data.electric != null &&
+                                machine.data.electric.percentage != null
+                                    ? machine.data.electric.percentage
+                                    : '-',
+                            temporary:
+                                machine.data.temporary != null &&
+                                machine.data.temporary.percentage != null
+                                    ? machine.data.temporary.percentage
+                                    : '-',
+                        });
+                    });
+                });
+        };
 
-        for (let i = 0; i < normalPath.length; i++) {
-            dataName =
-                normalPath[i].id > 0 && normalPath[i].id < 10
-                    ? '0' + normalPath[i].id
-                    : normalPath[i].id;
+        getPath('Normal');
+        getPath('Warning');
+        getPath('Critical');
 
-            motorId = 'Motor ' + dataName;
-            vibration = normalPath[i].data.vibration.condition;
-            temp = normalPath[i].data.temperature.condition;
-            normalize = normalPath[i].data.normalize.condition;
-            electric = normalPath[i].data.electric.condition;
-
-            arr.push([motorId, vibration, temp, normalize, electric]);
-        }
-        for (let i = 0; i < warningPath.length; i++) {
-            dataName =
-                warningPath[i].id > 0 && warningPath[i].id < 10
-                    ? '0' + warningPath[i].id
-                    : warningPath[i].id;
-
-            motorId = 'Motor ' + dataName;
-            vibration = warningPath[i].data.vibration.condition;
-            temp = warningPath[i].data.temperature.condition;
-            normalize = warningPath[i].data.normalize.condition;
-            electric = warningPath[i].data.electric.condition;
-
-            arr.push([motorId, vibration, temp, normalize, electric]);
-        }
-        for (let i = 0; i < criticalPath.length; i++) {
-            dataName =
-                criticalPath[i].id > 0 && criticalPath[i].id < 10
-                    ? '0' + criticalPath[i].id
-                    : criticalPath[i].id;
-
-            motorId = 'Motor ' + dataName;
-            vibration = criticalPath[i].data.vibration.condition;
-            temp = criticalPath[i].data.temperature.condition;
-            normalize = criticalPath[i].data.normalize.condition;
-            electric = criticalPath[i].data.electric.condition;
-
-            arr.push([motorId, vibration, temp, normalize, electric]);
-        }
         return arr;
     },
 
-    getMotorHeatmapData(state) {
-        return (motor) => {
-            let motorId = parseInt(motor.substr(6, 2)),
+    getMachineHeatmapData(state) {
+        return (machine) => {
+            let machineId = parseInt(machine.substr(8, 2)),
                 timestamp,
                 timestamp_dayOfWeek,
                 health,
@@ -155,21 +185,23 @@ export default {
                 y = 0;
 
             for (let i = 0; i < path.length; i++) {
-                for (let j = 0; j < path[i].motorData.length; j++) {
-                    if (path[i].motorData[j].id === motorId) {
-                        timestamp = path[i].motorData[j].data.predictHealth.timestamp * 1000;
+                for (let j = 0; j < path[i].machineData.length; j++) {
+                    if (path[i].machineData[j].id === machineId) {
+                        timestamp =
+                            (path[i].machineData[j].data.predictHealth.timestamp - 31536000) * 1000;
                         timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
-                        health = path[i].motorData[j].data.predictHealth.predictHealthScore;
+                        health = path[i].machineData[j].data.predictHealth.predictHealthScore;
                     }
                 }
             }
 
             let week = dayjs(timestamp).week();
+            console.log(week);
 
             if (timestamp_dayOfWeek !== 1) {
                 let data = [];
                 for (let j = 0; j < timestamp_dayOfWeek - 1; j++) {
-                    data.push([week, y, null]);
+                    data.push([week, y, null, null]);
                     y++;
                 }
                 dataObj.push({
@@ -187,7 +219,7 @@ export default {
 
                 let data = [];
                 for (let j = 0; j < daysInMonth; j++) {
-                    data.push([week, y, health]);
+                    data.push([week, y, health, dayjs(timestamp).format('MMMM D, YYYY')]);
                     if (y === 6) {
                         week += 1;
                         y = 0;
@@ -197,8 +229,9 @@ export default {
                     health -= 0.07;
                     timestamp += 86400000;
                 }
+
                 dataObj.push({
-                    month: dayjs(timestamp - 86400000).format('MMMM'),
+                    month: dayjs(timestamp - 2629743000).format('MMMM'),
                     data: data,
                 });
             }
@@ -206,25 +239,25 @@ export default {
             return dataObj;
         };
     },
-    getFirstMotorCompare(state) {
-        return state.firstMotorCompare;
+    getFirstMachineCompare(state) {
+        return state.firstMachineCompare;
     },
-    getSecondMotorCompare(state) {
-        return state.secondMotorCompare;
+    getSecondMachineCompare(state) {
+        return state.secondMachineCompare;
     },
     getComparisonData(state) {
-        return (motorID, factor) => {
+        return (machineID, factor) => {
             let obj = {},
                 arr = [];
 
-            if (motorID.substr(0, 5) === 'Motor') {
-                motorID = parseInt(motorID.substr(6, 2));
+            if (machineID.substr(0, 5) === 'Machine') {
+                machineID = parseInt(machineID.substr(8, 2));
 
                 let path = state.plant[0].data;
                 for (let i = 0; i < path.length; i++) {
-                    for (let j = 0; j < path[i].motorData.length; j++) {
-                        if (path[i].motorData[j].id === motorID) {
-                            obj = path[i].motorData[j].data;
+                    for (let j = 0; j < path[i].machineData.length; j++) {
+                        if (path[i].machineData[j].id === machineID) {
+                            obj = path[i].machineData[j].data;
                         }
                     }
                 }
@@ -251,23 +284,20 @@ export default {
                         break;
                 }
             }
-            // console.log(motorID, factor);
-
             return arr;
         };
     },
-
-    getMotorSortByCategory(state) {
+    getMachineSortByCategory(state) {
         return (category) => {
             let path = state.plant[0].data,
                 arr = [];
             for (let i = 0; i < path.length; i++) {
                 if (path[i].name === category) {
-                    for (let j = 0; j < path[i].motorData.length; j++) {
+                    for (let j = 0; j < path[i].machineData.length; j++) {
                         let id =
-                            path[i].motorData[j].id > 0 && path[i].motorData[j].id < 10
-                                ? 'Motor 0' + path[i].motorData[j].id
-                                : 'Motor ' + path[i].motorData[j].id;
+                            path[i].machineData[j].id > 0 && path[i].machineData[j].id < 10
+                                ? 'Machine 0' + path[i].machineData[j].id
+                                : 'Machine ' + path[i].machineData[j].id;
                         arr.push(id);
                     }
                 }
@@ -292,13 +322,13 @@ export default {
             return color;
         };
     },
-    getSelectedPlantMotor_GraphPage(state) {
-        return state.selectedPlantMotor_GraphPage;
+    getSelectedPlantMachine_GraphPage(state) {
+        return state.selectedPlantMachine_GraphPage;
     },
     getDailyLineChart(state) {
-        return (motor, graphName) => {
+        return (machine, graphName) => {
             let path = state.plant[0].data,
-                motorId = parseInt(motor.substr(6, 2)),
+                machineId = parseInt(machine.substr(8, 2)),
                 obj,
                 xAxis = [],
                 benchmark = [],
@@ -325,9 +355,9 @@ export default {
                     : 'electric';
 
             for (let i = 0; i < path.length; i++) {
-                for (let j = 0; j < path[i].motorData.length; j++) {
-                    if (path[i].motorData[j].id === motorId) {
-                        obj = path[i].motorData[j].data[graphName];
+                for (let j = 0; j < path[i].machineData.length; j++) {
+                    if (path[i].machineData[j].id === machineId) {
+                        obj = path[i].machineData[j].data[graphName];
                     }
                 }
             }
@@ -347,9 +377,9 @@ export default {
         };
     },
     getWeeklyScatterLineChart(state) {
-        return (motor, graphName) => {
+        return (machine, graphName) => {
             let path = state.plant[0].data,
-                motorId = parseInt(motor.substr(6, 2)),
+                machineId = parseInt(machine.substr(8, 2)),
                 obj,
                 xAxis = [
                     'January',
@@ -368,8 +398,8 @@ export default {
                 x = -0.3,
                 currentData = {},
                 benchmark = [],
-                current = [],
-                weekNo = 0;
+                current = [];
+            // weekNo = 0;
 
             graphName =
                 graphName === 'Predicted Health'
@@ -383,9 +413,9 @@ export default {
                     : 'electric';
 
             for (let i = 0; i < path.length; i++) {
-                for (let j = 0; j < path[i].motorData.length; j++) {
-                    if (path[i].motorData[j].id === motorId) {
-                        obj = path[i].motorData[j].data[graphName];
+                for (let j = 0; j < path[i].machineData.length; j++) {
+                    if (path[i].machineData[j].id === machineId) {
+                        obj = path[i].machineData[j].data[graphName];
                     }
                 }
             }
@@ -393,7 +423,7 @@ export default {
             for (let i = 0; i < xAxis.length; i++) {
                 benchmark.push(obj.benchmark);
                 for (let j = 0; j < 4; j++) {
-                    weekNo += 1;
+                    // weekNo += 1;
                     currentData = {
                         x: x,
                         y: obj.ytdScore + (Math.floor(Math.random() * 401) + i),
@@ -413,8 +443,8 @@ export default {
         };
     },
     getMonthlyHeatmapChart(state) {
-        return (motor, graphName) => {
-            let motorId = parseInt(motor.substr(6, 2)),
+        return (machine, graphName) => {
+            let machineId = parseInt(machine.substr(8, 2)),
                 obj = {},
                 timestamp,
                 timestamp_dayOfWeek,
@@ -436,13 +466,12 @@ export default {
                     : 'electric';
 
             for (let i = 0; i < path.length; i++) {
-                for (let j = 0; j < path[i].motorData.length; j++) {
-                    if (path[i].motorData[j].id === motorId) {
-                        obj = path[i].motorData[j].data[graphName];
+                for (let j = 0; j < path[i].machineData.length; j++) {
+                    if (path[i].machineData[j].id === machineId) {
+                        obj = path[i].machineData[j].data[graphName];
                     }
                 }
             }
-            console.log(obj);
 
             timestamp = obj.timestamp * 1000;
             timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
@@ -486,7 +515,6 @@ export default {
                     data: data,
                 });
             }
-            console.log(dataObj);
             return dataObj;
         };
     },

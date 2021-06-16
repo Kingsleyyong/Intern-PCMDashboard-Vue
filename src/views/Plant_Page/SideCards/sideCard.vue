@@ -4,17 +4,17 @@
 
         <Detail_SideCard class="mt-3" />
 
-        <TotalMotorOperation_SideCard class="mt-3" />
+        <TotalMachineOperation_SideCard class="mt-3" />
 
-        <TotalMotorStatus_SideCard class="mt-3" />
+        <TotalMachineStatus_SideCard class="mt-3" />
     </v-card>
 </template>
 
 <script>
 import Greeting_SideCard from './Cards/greeting';
 import Detail_SideCard from './Cards/details';
-import TotalMotorOperation_SideCard from './Cards/totalMotorOperation';
-import TotalMotorStatus_SideCard from './Cards/totalMotorStatus';
+import TotalMachineOperation_SideCard from './Cards/totalMachineOperation';
+import TotalMachineStatus_SideCard from './Cards/totalMachineStatus';
 
 export default {
     name: 'SideCard',
@@ -22,8 +22,8 @@ export default {
     components: {
         Greeting_SideCard,
         Detail_SideCard,
-        TotalMotorOperation_SideCard,
-        TotalMotorStatus_SideCard,
+        TotalMachineOperation_SideCard,
+        TotalMachineStatus_SideCard,
     },
 };
 </script>

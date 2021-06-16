@@ -4,9 +4,9 @@ export default {
         commit('currentPlantSelected', plant);
     },
 
-    async currentPlantMotor({ commit }, plant) {
+    async currentPlantMachine({ commit }, plant) {
         console.log(plant);
-        commit('currentPlantMotorSelected', plant);
+        commit('currentPlantMachineSelected', plant);
     },
 
     async compareColumn1({ commit }, plant) {
@@ -19,8 +19,8 @@ export default {
         commit('compareColumn2', plant);
     },
 
-    async currentPlantMotor_GraphPage({ commit }, plant) {
+    async currentPlantMachine_GraphPage({ commit }, plant) {
         console.log(plant);
-        commit('currentPlantMotorSelected_GraphPage', plant);
+        commit('currentPlantMachineSelected_GraphPage', plant);
     },
 };

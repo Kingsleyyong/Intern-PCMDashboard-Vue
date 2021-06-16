@@ -2,17 +2,17 @@
     <v-card class="ma-2 mt-5 rounded">
         <LineChart
             :chartName="chartTitle"
-            :chartData="getDailyLineChart(getSelectedPlantMotor_GraphPage, chartTitle)"
+            :chartData="getDailyLineChart(getSelectedPlantMachine_GraphPage, chartTitle)"
             v-if="line"
         />
         <ScatterLine
-            :chartData="getWeeklyScatterLineChart(getSelectedPlantMotor_GraphPage, chartTitle)"
+            :chartData="getWeeklyScatterLineChart(getSelectedPlantMachine_GraphPage, chartTitle)"
             :chartName="chartTitle"
             v-if="bubbleLine"
         />
         <HeatMap
             :chartName="chartTitle"
-            :chartData="getMonthlyHeatmapChart(getSelectedPlantMotor_GraphPage, chartTitle)"
+            :chartData="getMonthlyHeatmapChart(getSelectedPlantMachine_GraphPage, chartTitle)"
             v-if="heatmap"
         />
         <v-row class="col-4 align-center d-flex justify-end">
@@ -41,8 +41,8 @@ export default {
 
     computed: {
         ...mapGetters([
-            'getSelectedPlantMotor_GraphPage',
-            'getMotorHeatmapData',
+            'getSelectedPlantMachine_GraphPage',
+            'getMachineHeatmapData',
             'getDailyLineChart',
             'getWeeklyScatterLineChart',
             'getMonthlyHeatmapChart',
@@ -55,7 +55,7 @@ export default {
             bubbleLine: false,
             heatmap: false,
 
-            chartTitle: 'Predicted Health',
+            chartTitle: 'Energy Usage',
         };
     },
 

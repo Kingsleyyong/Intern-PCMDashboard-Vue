@@ -7,7 +7,7 @@
 import { Chart } from 'highcharts-vue';
 
 export default {
-    props: ['chartData', 'totalMotor'],
+    props: ['chartData', 'totalMachine'],
     components: { highcharts: Chart },
     data() {
         return {
@@ -24,7 +24,7 @@ export default {
                 exporting: { enabled: false },
 
                 title: {
-                    text: this.chartData[0] + '/' + this.totalMotor,
+                    text: this.chartData[0] + '/' + this.totalMachine,
                     align: 'center',
                     verticalAlign: 'middle',
                     x: 0,
@@ -36,7 +36,7 @@ export default {
                 },
 
                 subtitle: {
-                    text: (this.chartData[0] / this.totalMotor) * 100 + '%',
+                    text: (this.chartData[0] / this.totalMachine) * 100 + '%',
                     align: 'center',
                     verticalAlign: 'middle',
                     x: 0,

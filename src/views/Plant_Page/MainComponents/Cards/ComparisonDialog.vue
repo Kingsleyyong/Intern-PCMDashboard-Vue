@@ -1,7 +1,7 @@
 <template>
     <v-card class="pa-0" color="grey darken-3">
         <v-card-title class="d-flex justify-space-between">
-            <span>{{ getCurrentSelectedPlant }}'s {{ this.name }} Motor</span>
+            <span>{{ getCurrentSelectedPlant }}'s {{ this.name }} Machine</span>
         </v-card-title>
 
         <v-card-text>
@@ -9,7 +9,7 @@
                 <thead>
                     <th id="firstHeader"></th>
                     <th class="ma-10">
-                        {{ getFirstMotorCompare }}
+                        {{ getFirstMachineCompare }}
                         <span>
                             <v-menu offset-y>
                                 <template v-slot:activator="{ on, attrs }">
@@ -19,7 +19,7 @@
                                 </template>
                                 <v-list style="width: 7rem; height: 10rem; overflow-y: auto">
                                     <v-list-item
-                                        v-for="(item, index) in getPlantMotorID"
+                                        v-for="(item, index) in getPlantMachineID"
                                         :key="index"
                                         @click="compareColumn1(item)"
                                     >
@@ -34,7 +34,7 @@
                         </div>
                     </th>
                     <th class="ma-10">
-                        {{ getSecondMotorCompare }}
+                        {{ getSecondMachineCompare }}
                         <span>
                             <v-menu offset-y>
                                 <template v-slot:activator="{ on, attrs }">
@@ -44,7 +44,7 @@
                                 </template>
                                 <v-list style="width: 7rem; height: 10rem; overflow-y: auto">
                                     <v-list-item
-                                        v-for="(item, index) in getPlantMotorID"
+                                        v-for="(item, index) in getPlantMachineID"
                                         :key="index"
                                         @click="compareColumn2(item)"
                                     >
@@ -67,7 +67,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getFirstMotorCompare,
+                                        getFirstMachineCompare,
                                         1
                                     )"
                                     :key="index"
@@ -80,7 +80,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getSecondMotorCompare,
+                                        getSecondMachineCompare,
                                         1
                                     )"
                                     :key="index"
@@ -96,7 +96,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getFirstMotorCompare,
+                                        getFirstMachineCompare,
                                         2
                                     )"
                                     :key="index"
@@ -109,7 +109,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getSecondMotorCompare,
+                                        getSecondMachineCompare,
                                         2
                                     )"
                                     :key="index"
@@ -125,7 +125,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getFirstMotorCompare,
+                                        getFirstMachineCompare,
                                         3
                                     )"
                                     :key="index"
@@ -138,7 +138,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getSecondMotorCompare,
+                                        getSecondMachineCompare,
                                         3
                                     )"
                                     :key="index"
@@ -154,7 +154,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getFirstMotorCompare,
+                                        getFirstMachineCompare,
                                         4
                                     )"
                                     :key="index"
@@ -167,7 +167,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getSecondMotorCompare,
+                                        getSecondMachineCompare,
                                         4
                                     )"
                                     :key="index"
@@ -183,7 +183,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getFirstMotorCompare,
+                                        getFirstMachineCompare,
                                         5
                                     )"
                                     :key="index"
@@ -196,7 +196,7 @@
                             <div class="d-flex justify-space-around">
                                 <span
                                     v-for="(score, index) in getComparisonData(
-                                        getSecondMotorCompare,
+                                        getSecondMachineCompare,
                                         5
                                     )"
                                     :key="index"
@@ -220,9 +220,9 @@ export default {
     computed: {
         ...mapGetters([
             'getCurrentSelectedPlant',
-            'getPlantMotorID',
-            'getFirstMotorCompare',
-            'getSecondMotorCompare',
+            'getPlantMachineID',
+            'getFirstMachineCompare',
+            'getSecondMachineCompare',
             'getComparisonData',
         ]),
     },

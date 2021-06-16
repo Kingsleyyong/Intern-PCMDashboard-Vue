@@ -12,55 +12,54 @@
       }
     }
   ],
-  "overallMotorCalculation": {
-    "totalMotors": 500,
-    "motorInOperation": 400,
-    "totalPlantNormalMotor": 260,
-    "totalPlantCriticalMotor": 120,
-    "totalPlantWarningMotor": 120
+  "overallMachineCalculation": {
+    "totalMachines": 500,
+    "machineInOperation": 400,
+    "totalPlantNormalMachines": 260,
+    "totalPlantCriticalMachines": 120,
+    "totalPlantWarningMachines": 120
   },
   "plant": [
     {
       "plantId": 1,
-      "totalMotor": 30,
+      "totalMachine": 30,
       "data": [
         {
           "name": "Normal",
           "themeColor": "#00CD43",
-          "motorNum_Today": 10,
-          "motorNum_Ytd": 25,
-          "motorData": [
+          "machineNum_Today": 10,
+          "machineNum_Ytd": 25,
+          "machineData": [
             {
               "id": 1,
               "data": {
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 50,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 55,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 60,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 35,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -72,31 +71,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 49,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 20,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 90,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -108,31 +106,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 48,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 47,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -144,31 +141,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 47,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -180,31 +176,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 46,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -216,31 +211,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 45,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -252,31 +246,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -288,31 +281,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -324,31 +316,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -360,31 +351,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -395,40 +385,39 @@
         {
           "name": "Warning",
           "themeColor": "#FF9200",
-          "motorNum_Today": 10,
-          "motorNum_Ytd": 10,
-          "motorData": [
+          "machineNum_Today": 10,
+          "machineNum_Ytd": 10,
+          "machineData": [
             {
               "id": 11,
               "data": {
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -440,31 +429,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -476,31 +464,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -512,31 +499,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -548,31 +534,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -584,31 +569,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -620,31 +604,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -656,31 +639,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -692,31 +674,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -728,31 +709,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -763,40 +743,39 @@
         {
           "name": "Critical",
           "themeColor": "#F60000",
-          "motorNum_Today": 10,
-          "motorNum_Ytd": 3,
-          "motorData": [
+          "machineNum_Today": 10,
+          "machineNum_Ytd": 3,
+          "machineData": [
             {
               "id": 21,
               "data": {
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -808,31 +787,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -844,31 +822,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -880,31 +857,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -916,31 +892,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -952,31 +927,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -988,31 +962,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -1024,31 +997,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -1060,31 +1032,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -1096,31 +1067,30 @@
                 "predictHealth": {
                   "timestamp": 1609502400,
                   "predictHealthScore": 96,
-                  "condition": null,
                   "benchmark": 500,
                   "ytdScore": 470
                 },
                 "vibration": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 1.32,
                   "ytdScore": 175
                 },
                 "temperature": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 26.25343,
                   "ytdScore": 27.7642
                 },
                 "normalize": {
                   "timestamp": 1609502400,
-                  "condition": false,
+                  "percentage": 30,
                   "benchmark": 266,
                   "ytdScore": 287
                 },
                 "electric": {
                   "timestamp": 1609502400,
-                  "condition": true,
+                  "percentage": 30,
                   "benchmark": 331,
                   "ytdScore": 290
                 }
@@ -1138,8 +1108,8 @@
     }
   ],
   "selectedPlant": "Plant 01",
-  "selectedPlantMotor_HeatMap": "Motor 01",
-  "firstMotorCompare": "Please Choose a MotorID",
-  "secondMotorCompare": "Please Choose a MotorID",
-  "selectedPlantMotor_GraphPage": "Motor 01"
+  "selectedPlantMachine_HeatMap": "Machine 01",
+  "firstMachineCompare": "Please Choose a MachineID",
+  "secondMachineCompare": "Please Choose a MachineID",
+  "selectedPlantMachine_GraphPage": "Machine 01"
 }

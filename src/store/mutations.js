@@ -3,19 +3,19 @@ export default {
         state.selectedPlant = plant;
     },
 
-    currentPlantMotorSelected(state, plant) {
-        state.selectedPlantMotor_HeatMap = plant;
+    currentPlantMachineSelected(state, plant) {
+        state.selectedPlantMachine_HeatMap = plant;
     },
 
     compareColumn1(state, plant) {
-        state.firstMotorCompare = plant;
+        state.firstMachineCompare = plant;
     },
 
     compareColumn2(state, plant) {
-        state.secondMotorCompare = plant;
+        state.secondMachineCompare = plant;
     },
 
-    currentPlantMotorSelected_GraphPage(state, plant) {
-        state.selectedPlantMotor_GraphPage = plant;
+    currentPlantMachineSelected_GraphPage(state, plant) {
+        state.selectedPlantMachine_GraphPage = plant;
     },
 };
