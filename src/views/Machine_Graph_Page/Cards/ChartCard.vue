@@ -61,25 +61,9 @@ export default {
 
     methods: {
         setGraph(criteria) {
-            switch (criteria) {
-                case 'day':
-                    this.line = true;
-                    this.bubbleLine = false;
-                    this.heatmap = false;
-                    break;
-
-                case 'week':
-                    this.line = false;
-                    this.bubbleLine = true;
-                    this.heatmap = false;
-                    break;
-
-                case 'month':
-                    this.line = false;
-                    this.bubbleLine = false;
-                    this.heatmap = true;
-                    break;
-            }
+            this.line = criteria === 'day';
+            this.bubbleLine = criteria === 'week';
+            this.heatmap = criteria === 'month';
         },
     },
 };

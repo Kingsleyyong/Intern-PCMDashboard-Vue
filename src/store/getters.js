@@ -212,10 +212,10 @@ export default {
                 health -= 0.07;
             }
 
-            let v = Object.keys(dataObj).map((month) => ({
-                month,
-                data: dataObj[month],
-            }));
+            // let v = Object.keys(dataObj).map((month) => ({
+            //     month,
+            //     data: dataObj[month],
+            // }));
 
             return Object.keys(dataObj).map((month) => ({
                 month,

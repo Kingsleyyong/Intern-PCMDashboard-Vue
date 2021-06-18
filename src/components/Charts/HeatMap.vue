@@ -151,67 +151,22 @@ export default {
                 },
 
                 series: [
-                    {
-                        name: 'January',
-                        data: this.chartData.filter((index) => index.month === 'January')[0][
-                            'data'
-                        ],
-                    },
-                    {
-                        name: 'February',
-                        data: this.chartData.filter((index) => index.month === 'February')[0][
-                            'data'
-                        ],
-                    },
-                    {
-                        name: 'March',
-                        data: this.chartData.filter((index) => index.month === 'March')[0]['data'],
-                    },
-                    {
-                        name: 'April',
-                        data: this.chartData.filter((index) => index.month === 'April')[0]['data'],
-                    },
-                    {
-                        name: 'May',
-                        data: this.chartData.filter((index) => index.month === 'May')[0]['data'],
-                    },
-                    {
-                        name: 'June',
-                        data: this.chartData.filter((index) => index.month === 'June')[0]['data'],
-                    },
-                    {
-                        name: 'July',
-                        data: this.chartData.filter((index) => index.month === 'July')[0]['data'],
-                    },
-                    {
-                        name: 'August',
-                        data: this.chartData.filter((index) => index.month === 'August')[0]['data'],
-                    },
-                    {
-                        name: 'September',
-                        data: this.chartData.filter((index) => index.month === 'September')[0][
-                            'data'
-                        ],
-                    },
-                    {
-                        name: 'October',
-                        data: this.chartData.filter((index) => index.month === 'October')[0][
-                            'data'
-                        ],
-                    },
-                    {
-                        name: 'November',
-                        data: this.chartData.filter((index) => index.month === 'November')[0][
-                            'data'
-                        ],
-                    },
-                    {
-                        name: 'December',
-                        data: this.chartData.filter((index) => index.month === 'December')[0][
-                            'data'
-                        ],
-                    },
-                ],
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                ].map((m) => ({
+                    name: m,
+                    data: this.chartData.filter((i) => i.month === m)[0].data,
+                })),
             },
         };
     },
