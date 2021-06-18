@@ -28,7 +28,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import HeatMap from '../Chart/predictedHealthScoreHeatmap';
+import HeatMap from '../../../../components/Charts/HeatMap';
 
 export default {
     components: {

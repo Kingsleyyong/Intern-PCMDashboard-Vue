@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import PieChart from '../Charts/totalMachineStatusPie';
+import PieChart from '../../../../components/Charts/totalMachineStatusPie';
 import { mapGetters } from 'vuex';
 
 export default {

@@ -211,6 +211,12 @@ export default {
                 dataObj[month].push([x, dow, health, current.format('MMMM D, YYYY')]);
                 health -= 0.07;
             }
+
+            let v = Object.keys(dataObj).map((month) => ({
+                month,
+                data: dataObj[month],
+            }));
+
             return Object.keys(dataObj).map((month) => ({
                 month,
                 data: dataObj[month],
@@ -453,6 +459,7 @@ export default {
                 dataObj[month].push([x, dow, percentage, current.format('MMMM D, YYYY')]);
                 percentage -= 0.07;
             }
+
             return Object.keys(dataObj).map((month) => ({
                 month,
                 data: dataObj[month],

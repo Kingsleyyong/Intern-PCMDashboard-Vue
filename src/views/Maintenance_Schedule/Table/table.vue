@@ -1,6 +1,9 @@
 <template>
-    <span>{{ search }}</span>
-<!--    <v-data-table :headers="headers" :search="search" multi-sort></v-data-table>-->
+    <v-data-table
+        :headers="headers"
+        :search="search"
+        multi-sort
+    ></v-data-table>
 </template>
 
 <script>
@@ -31,18 +34,11 @@ export default {
                     width: '7rem',
                 },
                 {
-                    text: 'Request Type',
+                    text: 'PCM Type',
                     align: 'center',
                     sortable: false,
-                    value: 'requestType',
-                    width: '7rem',
-                },
-                {
-                    text: 'Request Details',
-                    align: 'center',
-                    sortable: false,
-                    value: 'requestDetails',
-                    width: '11rem',
+                    value: 'pcmType',
+                    width: '10rem',
                 },
                 {
                     text: 'Running Hours',

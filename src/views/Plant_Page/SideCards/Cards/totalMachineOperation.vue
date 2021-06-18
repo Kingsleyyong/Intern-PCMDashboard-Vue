@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DonutChart from '../Charts/totalMachineOperationDonut';
+import DonutChart from '../../../../components/Charts/totalMachineOperationDonut';
 import { mapGetters } from 'vuex';
 
 export default {

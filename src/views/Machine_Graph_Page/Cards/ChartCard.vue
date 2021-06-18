@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import LineChart from '../Charts/Line';
-import ScatterLine from '../Charts/ScatterLine';
-import HeatMap from '../Charts/HeatMap';
+import LineChart from '../../../components/Charts/Line';
+import ScatterLine from '../../../components/Charts/ScatterLine';
+import HeatMap from '../../../components/Charts/HeatMap';
 
 import { mapGetters } from 'vuex';
 

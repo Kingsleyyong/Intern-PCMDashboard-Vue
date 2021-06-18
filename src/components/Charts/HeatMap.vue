@@ -27,20 +27,60 @@ export default {
             this.$set(this.options, 'xAxis', this.series.xAxis);
             this.$set(this.options, 'series', this.series.series);
         },
+
+        getChartTitleOption(chartName) {
+            if (!chartName) {
+                return { text: null };
+            } else {
+                return {
+                    widthAdjust: -1200,
+                    text: chartName,
+                };
+            }
+        },
+
+        getChartLegendOption(chartName) {
+            if (!chartName) {
+                return {
+                    marginTop: 5,
+                    padding: 10,
+                    backgroundColor: '#303030',
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    labelFormatter: function () {
+                        return this.name + ' %';
+                    },
+                };
+            } else {
+                return {
+                    labelFormatter: function () {
+                        return this.name + ' %';
+                    },
+                };
+            }
+        },
+
+        getChart(chartName) {
+            if (!chartName) {
+                return {
+                    type: 'heatmap',
+                };
+            } else {
+                return {
+                    type: 'heatmap',
+                    marginLeft: 250,
+                };
+            }
+        },
     },
 
     data() {
         return {
             chartOptions: {
-                chart: {
-                    type: 'heatmap',
-                    marginLeft: 250,
-                },
+                chart: this.getChart(this.chartName),
 
-                title: {
-                    widthAdjust: -1200,
-                    text: this.chartName,
-                },
+                title: this.getChartTitleOption(this.chartName),
 
                 xAxis: {
                     type: 'datetime',
@@ -78,11 +118,7 @@ export default {
                     ],
                 },
 
-                legend: {
-                    labelFormatter: function () {
-                        return this.name + ' %';
-                    },
-                },
+                legend: this.getChartLegendOption(this.chartName),
 
                 tooltip: {
                     formatter: function () {
@@ -117,87 +153,63 @@ export default {
                 series: [
                     {
                         name: 'January',
-                        data:
-                            this.chartData[1].month === 'January'
-                                ? this.chartData[1].data
-                                : this.chartData[0].data,
+                        data: this.chartData.filter((index) => index.month === 'January')[0][
+                            'data'
+                        ],
                     },
                     {
                         name: 'February',
-                        data:
-                            this.chartData[2].month === 'February'
-                                ? this.chartData[2].data
-                                : this.chartData[1].data,
+                        data: this.chartData.filter((index) => index.month === 'February')[0][
+                            'data'
+                        ],
                     },
                     {
                         name: 'March',
-                        data:
-                            this.chartData[3].month === 'March'
-                                ? this.chartData[3].data
-                                : this.chartData[2].data,
+                        data: this.chartData.filter((index) => index.month === 'March')[0]['data'],
                     },
                     {
                         name: 'April',
-                        data:
-                            this.chartData[4].month === 'April'
-                                ? this.chartData[4].data
-                                : this.chartData[3].data,
+                        data: this.chartData.filter((index) => index.month === 'April')[0]['data'],
                     },
                     {
                         name: 'May',
-                        data:
-                            this.chartData[5].month === 'May'
-                                ? this.chartData[5].data
-                                : this.chartData[4].data,
+                        data: this.chartData.filter((index) => index.month === 'May')[0]['data'],
                     },
                     {
                         name: 'June',
-                        data:
-                            this.chartData[6].month === 'June'
-                                ? this.chartData[6].data
-                                : this.chartData[5].data,
+                        data: this.chartData.filter((index) => index.month === 'June')[0]['data'],
                     },
                     {
                         name: 'July',
-                        data:
-                            this.chartData[7].month === 'July'
-                                ? this.chartData[7].data
-                                : this.chartData[6].data,
+                        data: this.chartData.filter((index) => index.month === 'July')[0]['data'],
                     },
                     {
                         name: 'August',
-                        data:
-                            this.chartData[8].month === 'August'
-                                ? this.chartData[8].data
-                                : this.chartData[7].data,
+                        data: this.chartData.filter((index) => index.month === 'August')[0]['data'],
                     },
                     {
                         name: 'September',
-                        data:
-                            this.chartData[9].month === 'September'
-                                ? this.chartData[9].data
-                                : this.chartData[8].data,
+                        data: this.chartData.filter((index) => index.month === 'September')[0][
+                            'data'
+                        ],
                     },
                     {
                         name: 'October',
-                        data:
-                            this.chartData[10].month === 'October'
-                                ? this.chartData[10].data
-                                : this.chartData[9].data,
+                        data: this.chartData.filter((index) => index.month === 'October')[0][
+                            'data'
+                        ],
                     },
                     {
                         name: 'November',
-                        data:
-                            this.chartData[11].month === 'November'
-                                ? this.chartData[11].data
-                                : this.chartData[10].data,
+                        data: this.chartData.filter((index) => index.month === 'November')[0][
+                            'data'
+                        ],
                     },
                     {
                         name: 'December',
-                        data:
-                            this.chartData[11].month === 'November'
-                                ? this.chartData[12].data
-                                : this.chartData[11].data,
+                        data: this.chartData.filter((index) => index.month === 'December')[0][
+                            'data'
+                        ],
                     },
                 ],
             },

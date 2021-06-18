@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Plant from "../views/Plant_Page/Plant";
 import MachineGraph from "../views/Machine_Graph_Page/MachineGraph";
-import MaintenanceSchedule from "../views/MainTenance_Schedule/MaintenanceSchedule";
+import MaintenanceSchedule from "../views/Maintenance_Schedule/MaintenanceSchedule";
 
 Vue.use(VueRouter);
 

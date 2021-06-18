@@ -3,6 +3,7 @@
         <template v-slot:top>
             <v-row class="pa-3">
                 <v-select
+                    v-model="selectedMachine"
                     :items="getPlantMachineID"
                     label="Please choose a Machine ID."
                     class="pl-3"
@@ -115,6 +116,7 @@ export default {
 
     data() {
         return {
+            selectedMachine: null,
             numberRule: (num) => {
                 if (!isNaN(num)) return true;
                 return 'Please insert a valid number.';
