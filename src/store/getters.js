@@ -81,6 +81,10 @@ export default {
         return machineId;
     },
 
+    getPredictFactorKeys(state) {
+        return Object.keys(state.plant[0].predictiveFactor);
+    },
+
     getPredictedFactor(state) {
         return [
             {
@@ -177,66 +181,40 @@ export default {
         return (machine) => {
             let machineId = parseInt(machine.substr(8, 2)),
                 timestamp,
-                timestamp_dayOfWeek,
                 health,
                 path = state.plant[0].data,
-                dataObj = [],
-                // x = 0,
-                y = 0;
+                machineData = {};
 
             for (let i = 0; i < path.length; i++) {
                 for (let j = 0; j < path[i].machineData.length; j++) {
                     if (path[i].machineData[j].id === machineId) {
-                        timestamp =
-                            (path[i].machineData[j].data.predictHealth.timestamp - 31536000) * 1000;
-                        timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
-                        health = path[i].machineData[j].data.predictHealth.predictHealthScore;
+                        machineData = path[i].machineData[j].data.predictHealth;
                     }
                 }
             }
 
-            let week = dayjs(timestamp).week();
-            console.log(week);
+            timestamp = machineData.timestamp * 1000;
+            health = machineData.predictHealthScore;
+            const date = dayjs(timestamp);
+            const loopStart = date.subtract(1, 'year').startOf('month');
 
-            if (timestamp_dayOfWeek !== 1) {
-                let data = [];
-                for (let j = 0; j < timestamp_dayOfWeek - 1; j++) {
-                    data.push([week, y, null, null]);
-                    y++;
+            // { 'Jan': [], 'Feb': [] ... 'Dec': [] }
+            const dataObj = {};
+
+            for (let current = loopStart; current.isBefore(date); current = current.add(1, 'day')) {
+                const month = current.format('MMMM');
+                if (!dataObj[month]) {
+                    dataObj[month] = [];
                 }
-                dataObj.push({
-                    month: 'NONE',
-                    data: data,
-                });
+                const dow = current.isoWeekday() - 1; // monday is start of the week
+                const x = current.startOf('isoWeek').valueOf(); // get monday time
+                dataObj[month].push([x, dow, health, current.format('MMMM D, YYYY')]);
+                health -= 0.07;
             }
-
-            for (let i = 1; i <= 12; i++) {
-                let daysInMonth = new Date(
-                    parseInt(dayjs(timestamp).format('YYYY')),
-                    i,
-                    0
-                ).getDate();
-
-                let data = [];
-                for (let j = 0; j < daysInMonth; j++) {
-                    data.push([week, y, health, dayjs(timestamp).format('MMMM D, YYYY')]);
-                    if (y === 6) {
-                        week += 1;
-                        y = 0;
-                    } else {
-                        y++;
-                    }
-                    health -= 0.07;
-                    timestamp += 86400000;
-                }
-
-                dataObj.push({
-                    month: dayjs(timestamp - 2629743000).format('MMMM'),
-                    data: data,
-                });
-            }
-            console.log(dataObj);
-            return dataObj;
+            return Object.keys(dataObj).map((month) => ({
+                month,
+                data: dataObj[month],
+            }));
         };
     },
     getFirstMachineCompare(state) {
@@ -381,21 +359,8 @@ export default {
             let path = state.plant[0].data,
                 machineId = parseInt(machine.substr(8, 2)),
                 obj,
-                xAxis = [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December',
-                ],
-                x = -0.3,
+                xAxis = [],
+                x = 0,
                 currentData = {},
                 benchmark = [],
                 current = [];
@@ -420,19 +385,20 @@ export default {
                 }
             }
 
-            for (let i = 0; i < xAxis.length; i++) {
+            for (let i = 0; i < 53; i++) {
                 benchmark.push(obj.benchmark);
-                for (let j = 0; j < 4; j++) {
-                    // weekNo += 1;
-                    currentData = {
-                        x: x,
-                        y: obj.ytdScore + (Math.floor(Math.random() * 401) + i),
-                    };
-                    x = Math.round((x + 0.2) * 10) / 10;
-                    if (j === 3) x = Math.round((x + 0.2) * 10) / 10;
+                xAxis.push('Week ' + (i + 1));
+                // for (let j = 0; j < 4; j++) {
+                // weekNo += 1;
+                currentData = {
+                    x: x,
+                    y: obj.ytdScore + (Math.floor(Math.random() * 100) + i),
+                };
+                x = Math.round((x + 1) * 10) / 10;
+                // if (j === 3) x = Math.round((x + 0.2) * 10) / 10;
 
-                    current.push(currentData);
-                }
+                current.push(currentData);
+                // }
             }
 
             return {
@@ -447,12 +413,8 @@ export default {
             let machineId = parseInt(machine.substr(8, 2)),
                 obj = {},
                 timestamp,
-                timestamp_dayOfWeek,
                 percentage,
-                path = state.plant[0].data,
-                dataObj = [],
-                // x = 0,
-                y = 0;
+                path = state.plant[0].data;
 
             graphName =
                 graphName === 'Predicted Health'
@@ -474,48 +436,27 @@ export default {
             }
 
             timestamp = obj.timestamp * 1000;
-            timestamp_dayOfWeek = parseInt(dayjs(timestamp).format('d'));
             percentage = (obj.ytdScore / obj.benchmark) * 100;
 
-            let week = dayjs(timestamp).week();
+            const date = dayjs(timestamp);
+            const loopStart = date.subtract(1, 'year').startOf('month');
 
-            if (timestamp_dayOfWeek !== 1) {
-                let data = [];
-                for (let j = 0; j < timestamp_dayOfWeek - 1; j++) {
-                    data.push([week, y, null]);
-                    y++;
+            const dataObj = {};
+
+            for (let current = loopStart; current.isBefore(date); current = current.add(1, 'day')) {
+                const month = current.format('MMMM');
+                if (!dataObj[month]) {
+                    dataObj[month] = [];
                 }
-                dataObj.push({
-                    month: 'NONE',
-                    data: data,
-                });
+                const dow = current.isoWeekday() - 1; // monday is start of the week
+                const x = current.startOf('isoWeek').valueOf(); // get monday time
+                dataObj[month].push([x, dow, percentage, current.format('MMMM D, YYYY')]);
+                percentage -= 0.07;
             }
-
-            for (let i = 1; i <= 12; i++) {
-                let daysInMonth = new Date(
-                    parseInt(dayjs(timestamp).format('YYYY')),
-                    i,
-                    0
-                ).getDate();
-
-                let data = [];
-                for (let j = 0; j < daysInMonth; j++) {
-                    data.push([week, y, percentage]);
-                    if (y === 6) {
-                        week += 1;
-                        y = 0;
-                    } else {
-                        y++;
-                    }
-                    percentage -= 0.07;
-                    timestamp += 86400000;
-                }
-                dataObj.push({
-                    month: dayjs(timestamp - 86400000).format('MMMM'),
-                    data: data,
-                });
-            }
-            return dataObj;
+            return Object.keys(dataObj).map((month) => ({
+                month,
+                data: dataObj[month],
+            }));
         };
     },
 };

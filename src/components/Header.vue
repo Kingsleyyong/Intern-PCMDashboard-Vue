@@ -2,16 +2,16 @@
     <v-app-bar color="gray">
         <v-spacer />
 
-        <v-dialog v-model="dialog" fullscreen >
+        <v-dialog v-model="dialog" fullscreen>
             <template v-slot:activator="{ on, attrs }">
                 <v-btn icon v-bind="attrs" v-on="on">
                     <v-icon>mdi-cog-outline</v-icon>
                 </v-btn>
             </template>
-            <MaintenanceDialog @input="dialog = false"/>
+            <MaintenanceDialog @input="dialog = false" />
         </v-dialog>
 
-        <v-btn icon>
+        <v-btn icon @click="goToMaintenanceSchedule">
             <v-icon>mdi-note-text-outline</v-icon>
         </v-btn>
         <v-btn icon>
@@ -48,6 +48,9 @@ export default {
     methods: {
         goToHome() {
             this.$router.push({ name: 'Home' });
+        },
+        goToMaintenanceSchedule() {
+          this.$router.push({ name: 'MaintenanceSchedule' });
         },
     },
 };

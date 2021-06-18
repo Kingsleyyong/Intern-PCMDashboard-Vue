@@ -12,6 +12,7 @@ import noData from "highcharts/modules/no-data-to-display";
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import isoWeek from 'dayjs/plugin/isoWeek';
 
 exportingInit(Highcharts);
 exportData(Highcharts);
@@ -19,6 +20,7 @@ offlineExporting(Highcharts);
 noData(Highcharts);
 dayjs.extend(dayOfYear);
 dayjs.extend(weekOfYear);
+dayjs.extend(isoWeek);
 Vue.use(dayjs);
 Vue.use(Highcharts);
 Vue.use(HighchartsVue);

@@ -33,6 +33,8 @@ import HeatMap from '../Charts/HeatMap';
 import { mapGetters } from 'vuex';
 
 export default {
+    props: ['chartTitle'],
+
     components: {
         LineChart,
         ScatterLine,
@@ -54,8 +56,6 @@ export default {
             line: true,
             bubbleLine: false,
             heatmap: false,
-
-            chartTitle: 'Energy Usage',
         };
     },
 

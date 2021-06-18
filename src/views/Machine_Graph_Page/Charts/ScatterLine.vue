@@ -37,16 +37,14 @@ export default {
                 },
 
                 xAxis: {
-                    gridLineWidth: 2,
-                    gridLineColor: '#454545',
                     tickColor: '#454545',
                     categories: this.chartData.xAxis,
                 },
 
-                yAxis:{
+                yAxis: {
                     title: {
-                      enabled: false
-                    }
+                        enabled: false,
+                    },
                 },
 
                 plotOptions: {
@@ -55,7 +53,6 @@ export default {
                             enabled: false,
                         },
                         enableMouseTracking: true,
-
                     },
                     scatter: {
                         dataLabels: {
@@ -73,12 +70,17 @@ export default {
                                 },
                             },
                         },
+                        tooltip: {
+                            headerFormat: '<b>{point.x}</b><br>',
+                            pointFormat: '{series.name}: {point.y}%',
+                        },
                     },
                 },
 
                 series: [
                     {
                         type: 'scatter',
+                        name: 'Current Score',
                         data: this.chartData.current,
                     },
                     {

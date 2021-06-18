@@ -1,11 +1,22 @@
 <template>
     <v-data-table class="elevation-5" hide-default-footer :headers="headers" :items="row">
         <template v-slot:top>
-            <v-select
-                :items="getPlantMachineID"
-                label="Please choose a Machine ID."
-                class="pa-3"
-            ></v-select>
+            <v-row class="pa-3">
+                <v-select
+                    :items="getPlantMachineID"
+                    label="Please choose a Machine ID."
+                    class="pl-3"
+                ></v-select>
+
+                <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn v-bind="attrs" v-on="on" @click="appendTableRow" large class="ma-3">
+                            <v-icon> mdi-bookmark-plus-outline</v-icon>
+                        </v-btn>
+                    </template>
+                    Add Row
+                </v-tooltip>
+            </v-row>
         </template>
 
         <template v-slot:item.name="{ item }">
@@ -41,7 +52,9 @@
                 <!--                            @open="open"-->
                 <!--                            @close="close"-->
                 <!--                        >-->
+
                 <div>{{ props.item.maintenanceHr }}</div>
+                <!--                    <v-icon right x-small class="blue">mdi-circle-edit-outline</v-icon>-->
                 <template v-slot:input>
                     <div class="mt-4 text-h6">Update Maintenance Cycle Hour</div>
                     <v-text-field
@@ -94,6 +107,8 @@
 import { mapGetters } from 'vuex';
 
 export default {
+    props: ['appendRow'],
+
     computed: {
         ...mapGetters(['getPlantMachineID']),
     },
@@ -145,6 +160,10 @@ export default {
             ],
         };
     },
-    methods: {},
+    methods: {
+        appendTableRow() {
+            this.row.push({});
+        },
+    },
 };
 </script>

@@ -2,7 +2,7 @@
     <v-card width="40.7%" max-height="453" style="display: flex; flex-direction: column">
         <v-card-title class="grey darken-3 pa-2 d-flex justify-space-between">
             Predictive Maintenance List
-            <v-menu v-model="menu" :close-on-content-click="false" offset-y>
+            <v-menu :close-on-content-click="false" offset-y>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn icon v-bind="attrs" v-on="on">
                         <v-icon>mdi-magnify</v-icon>

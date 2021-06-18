@@ -8,11 +8,11 @@
             v-on:setCurrentPlantORMachine="currentPlantMachine_GraphPage"
         />
 
-        <PredictHealth />
-        <Vibration />
-        <Temperature />
-        <NormalizationHitCount />
-        <EnergyUsage />
+        <ChartCard :chartTitle="'Predicted Health'" />
+
+        <span v-for="(n, index) in getPredictFactorKeys" :key="index">
+            <ChartCard :chartTitle="n" />
+        </span>
     </v-main>
 </template>
 
@@ -20,21 +20,13 @@
 import { mapGetters, mapActions } from 'vuex';
 import Header from '../../components/Header';
 import Toolbar from '../ToolBar/toolbar';
-import PredictHealth from './Cards/PredictedHealth';
-import Vibration from './Cards/Vibration';
-import Temperature from './Cards/Temperature';
-import NormalizationHitCount from './Cards/NormalizationHitCount';
-import EnergyUsage from './Cards/EnergyUsage';
+import ChartCard from './Cards/ChartCard';
 
 export default {
     components: {
         Header,
         Toolbar,
-        PredictHealth,
-        Vibration,
-        Temperature,
-        NormalizationHitCount,
-        EnergyUsage,
+        ChartCard,
     },
 
     computed: {
@@ -42,6 +34,7 @@ export default {
             'getMachineSortByCategory',
             'getCategoryThemeColor',
             'getSelectedPlantMachine_GraphPage',
+            'getPredictFactorKeys',
         ]),
     },
 

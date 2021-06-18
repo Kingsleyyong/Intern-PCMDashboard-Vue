@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Plant from "../views/Plant_Page/Plant";
 import MachineGraph from "../views/Machine_Graph_Page/MachineGraph";
+import MaintenanceSchedule from "../views/MainTenance_Schedule/MaintenanceSchedule";
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,12 @@ const routes = [
         component: MachineGraph,
         props: true
     },
+    {
+        path: '/MaintenanceSchedule',
+        name: 'MaintenanceSchedule',
+        component: MaintenanceSchedule,
+        props: true
+    }
     // {
     //     path: '/about',
     //     name: 'About',

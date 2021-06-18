@@ -21,23 +21,23 @@
                         Duplicate Table
                     </v-tooltip>
                     <br />
-                    <v-tooltip bottom>
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn
-                                v-bind="attrs"
-                                v-on="on"
-                                class="mt-10"
-                                outlined
-                                style="transform: rotate(90deg)"
-                                @click="appendRow"
-                            >
-                                <v-icon style="transform: rotate(-90deg)">
-                                    mdi-bookmark-plus-outline
-                                </v-icon>
-                            </v-btn>
-                        </template>
-                        Add Row
-                    </v-tooltip>
+<!--                    <v-tooltip bottom>-->
+<!--                        <template v-slot:activator="{ on, attrs }">-->
+<!--                            <v-btn-->
+<!--                                v-bind="attrs"-->
+<!--                                v-on="on"-->
+<!--                                class="mt-10"-->
+<!--                                outlined-->
+<!--                                style="transform: rotate(90deg)"-->
+<!--                                @click="appendRow"-->
+<!--                            >-->
+<!--                                <v-icon style="transform: rotate(-90deg)">-->
+<!--                                    mdi-bookmark-plus-outline-->
+<!--                                </v-icon>-->
+<!--                            </v-btn>-->
+<!--                        </template>-->
+<!--                        Add Row-->
+<!--                    </v-tooltip>-->
                 </div>
 
                 <MachinePartsTable />
@@ -53,9 +53,6 @@ export default {
     methods: {
         duplicate() {
             this.$emit('duplicate');
-        },
-        appendRow() {
-            
         },
     },
 
