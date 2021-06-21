@@ -5,6 +5,8 @@
         :headers="headers"
         :items="row"
         @input="enterSelect($event)"
+        v-model="tableData"
+        item-key="name"
     >
         <template v-slot:top>
             <v-row class="pa-3">
@@ -45,9 +47,14 @@
                 <v-radio label="No" @click="item.pcm = 'no'"></v-radio>
             </v-radio-group>
 
-            <div v-if="item.pcm === 'yes' || getPredictFactorKeys.includes(item.pcm)" class="d-flex">
+            <div
+                v-if="item.pcm === 'yes' || getPredictFactorKeys.includes(item.pcm)"
+                class="d-flex"
+            >
                 <v-select :items="getPredictFactorKeys" v-model="item.pcm"></v-select>
-                <v-btn icon class="mt-5" @click="item.pcm = null"><v-icon>mdi-close-outline</v-icon></v-btn>
+                <v-btn icon class="mt-5" @click="item.pcm = null">
+                    <v-icon>mdi-close-outline</v-icon>
+                </v-btn>
             </div>
         </template>
 
@@ -105,11 +112,8 @@ export default {
 
     data() {
         return {
+            tableData: [],
             machineSelected: null,
-            // partsSelected: null,
-            pcmSelected: null,
-            // maintenanceHr: 0,
-            // lastRunHr: 0,
 
             parts: ['Bearing', 'Base Frame', 'Cooling Coil', 'Blower', 'Isolator'],
             numberRule: (num) => {
@@ -165,9 +169,9 @@ export default {
                 lastRuntimeHr: '',
             });
         },
-        enterSelect(values){
+        enterSelect(values) {
             console.log(values);
-        }
+        },
         // selectPCM(con) {
         //     this.pcmSelected = con;
         //     console.log(

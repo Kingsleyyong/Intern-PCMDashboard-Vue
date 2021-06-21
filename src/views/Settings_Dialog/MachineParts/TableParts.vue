@@ -23,7 +23,6 @@
                 </div>
 
                 <MachinePartsTable />
-<!--                <Table />-->
             </v-row>
         </div>
     </div>

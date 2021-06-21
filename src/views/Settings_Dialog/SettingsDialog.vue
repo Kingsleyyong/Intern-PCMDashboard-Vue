@@ -64,6 +64,7 @@ export default {
 
     methods: {
         close() {
+            this.partsArray= [{ type: 'MachineParts' }] ;
             this.$emit('input');
         },
         ...mapActions(['currentPlant']),
