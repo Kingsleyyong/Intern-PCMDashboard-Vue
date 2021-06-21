@@ -20,27 +20,10 @@
                         </template>
                         Duplicate Table
                     </v-tooltip>
-                    <br />
-<!--                    <v-tooltip bottom>-->
-<!--                        <template v-slot:activator="{ on, attrs }">-->
-<!--                            <v-btn-->
-<!--                                v-bind="attrs"-->
-<!--                                v-on="on"-->
-<!--                                class="mt-10"-->
-<!--                                outlined-->
-<!--                                style="transform: rotate(90deg)"-->
-<!--                                @click="appendRow"-->
-<!--                            >-->
-<!--                                <v-icon style="transform: rotate(-90deg)">-->
-<!--                                    mdi-bookmark-plus-outline-->
-<!--                                </v-icon>-->
-<!--                            </v-btn>-->
-<!--                        </template>-->
-<!--                        Add Row-->
-<!--                    </v-tooltip>-->
                 </div>
 
                 <MachinePartsTable />
+<!--                <Table />-->
             </v-row>
         </div>
     </div>
@@ -48,6 +31,7 @@
 
 <script>
 import MachinePartsTable from './Table/machines_parts_table';
+import Table from "./Table/table";
 
 export default {
     methods: {
@@ -58,6 +42,7 @@ export default {
 
     components: {
         MachinePartsTable,
+        Table
     },
 };
 </script>

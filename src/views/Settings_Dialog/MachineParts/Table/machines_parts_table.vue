@@ -1,9 +1,15 @@
 <template>
-    <v-data-table class="elevation-5" hide-default-footer :headers="headers" :items="row">
+    <v-data-table
+        class="elevation-5"
+        hide-default-footer
+        :headers="headers"
+        :items="row"
+        @input="enterSelect($event)"
+    >
         <template v-slot:top>
             <v-row class="pa-3">
                 <v-select
-                    v-model="selectedMachine"
+                    v-model="machineSelected"
                     :items="getPlantMachineID"
                     label="Please choose a Machine ID."
                     class="pl-3"
@@ -22,84 +28,67 @@
 
         <template v-slot:item.name="{ item }">
             <v-combobox
-                clearable
-                hide-selected
-                small-chips
                 label="Please Write or Select"
-                :items="item.name"
+                :items="parts"
+                v-model="item.name"
             ></v-combobox>
         </template>
 
-        <template v-slot:item.pcm="props">
+        <template v-slot:item.pcm="{ item }">
             <v-radio-group
-                :return-value.sync="props.item.pcm"
+                :return-value.sync="item.pcm"
                 row
                 class="pl-8 d-flex justify-space-between"
+                v-if="item.pcm === null || item.pcm === 'no'"
             >
-                <v-radio label="Yes"></v-radio>
-                <v-radio label="No"></v-radio>
+                <v-radio label="Yes" @click="item.pcm = 'yes'"></v-radio>
+                <v-radio label="No" @click="item.pcm = 'no'"></v-radio>
             </v-radio-group>
+
+            <div v-if="item.pcm === 'yes' || getPredictFactorKeys.includes(item.pcm)" class="d-flex">
+                <v-select :items="getPredictFactorKeys" v-model="item.pcm"></v-select>
+                <v-btn icon class="mt-5" @click="item.pcm = null"><v-icon>mdi-close-outline</v-icon></v-btn>
+            </div>
         </template>
 
-        <template v-slot:item.maintenanceHr="props">
-            <v-edit-dialog
-                :return-value.sync="props.item.maintenanceHr"
-                persistent
-                @save="saveMCH(props.item.maintenanceHr)"
-                large
+        <template v-slot:item.maintenanceHr="{ item }">
+            <div
+                v-if="
+                    item.pcm === 'yes' ||
+                    item.pcm === null ||
+                    getPredictFactorKeys.includes(item.pcm)
+                "
             >
-                <!--                            @save="save"-->
-                <!--                            @cancel="cancel"-->
-                <!--                            @open="open"-->
-                <!--                            @close="close"-->
-                <!--                        >-->
-
-                <div>{{ props.item.maintenanceHr }}</div>
-                <!--                    <v-icon right x-small class="blue">mdi-circle-edit-outline</v-icon>-->
-                <template v-slot:input>
-                    <div class="mt-4 text-h6">Update Maintenance Cycle Hour</div>
-                    <v-text-field
-                        v-model="props.item.maintenanceHr"
-                        :rules="[numberRule]"
-                        label="Edit"
-                        single-line
-                        counter
-                        autofocus
-                    ></v-text-field>
-                </template>
-            </v-edit-dialog>
+                -
+            </div>
+            <v-text-field
+                v-if="item.pcm === 'no'"
+                v-model="item.maintenanceHr"
+                label="Please enter number:"
+                :rules="[numberRule]"
+                single-line
+            >
+            </v-text-field>
         </template>
 
-        <template v-slot:item.name="{ item }">
-            <v-combobox
-                clearable
-                hide-selected
-                small-chips
-                label="Please Write or Select"
-                :items="item.name"
-            ></v-combobox>
-        </template>
-
-        <template v-slot:item.lastRuntimeHr="props">
-            <v-edit-dialog :return-value.sync="props.item.lastRuntimeHr" large persistent>
-                <!--                            @save="save"-->
-                <!--                            @cancel="cancel"-->
-                <!--                            @open="open"-->
-                <!--                            @close="close"-->
-                <!--                        >-->
-                <div>{{ props.item.lastRuntimeHr }}</div>
-                <template v-slot:input>
-                    <div class="mt-4 text-h6">Update Last Runtime Hour</div>
-                    <v-text-field
-                        v-model="props.item.lastRuntimeHr"
-                        :rules="[numberRule]"
-                        label="Edit"
-                        single-line
-                        counter
-                        autofocus
-                    ></v-text-field>
-                </template>
-            </v-edit-dialog>
+        <template v-slot:item.lastRuntimeHr="{ item }">
+            <div
+                v-if="
+                    item.pcm === 'yes' ||
+                    item.pcm === null ||
+                    getPredictFactorKeys.includes(item.pcm)
+                "
+            >
+                -
+            </div>
+            <v-text-field
+                v-if="item.pcm === 'no'"
+                v-model="item.lastRuntimeHr"
+                label="Please enter number:"
+                :rules="[numberRule]"
+                single-line
+            >
+            </v-text-field>
         </template>
     </v-data-table>
 </template>
@@ -111,12 +100,18 @@ export default {
     props: ['appendRow'],
 
     computed: {
-        ...mapGetters(['getPlantMachineID']),
+        ...mapGetters(['getPlantMachineID', 'getPredictFactorKeys']),
     },
 
     data() {
         return {
-            selectedMachine: null,
+            machineSelected: null,
+            // partsSelected: null,
+            pcmSelected: null,
+            // maintenanceHr: 0,
+            // lastRunHr: 0,
+
+            parts: ['Bearing', 'Base Frame', 'Cooling Coil', 'Blower', 'Isolator'],
             numberRule: (num) => {
                 if (!isNaN(num)) return true;
                 return 'Please insert a valid number.';
@@ -146,16 +141,15 @@ export default {
                 {
                     text: 'Last Runtime Hour',
                     value: 'lastRuntimeHr',
-                    width: '14rem',
+                    width: '16rem',
                     sortable: false,
                     align: 'center',
                 },
-                // { text: 'Iron (%)', value: 'iron', width: '10rem' },
             ],
             row: [
                 {
-                    name: ['Bearing', 'Base Frame', 'Cooling Coil', 'Blower', 'Isolator'],
-                    pcm: ['Yes', 'No'],
+                    name: '',
+                    pcm: null,
                     maintenanceHr: '',
                     lastRuntimeHr: '',
                 },
@@ -164,8 +158,35 @@ export default {
     },
     methods: {
         appendTableRow() {
-            this.row.push({});
+            this.row.push({
+                name: '',
+                pcm: null,
+                maintenanceHr: '',
+                lastRuntimeHr: '',
+            });
         },
+        enterSelect(values){
+            console.log(values);
+        }
+        // selectPCM(con) {
+        //     this.pcmSelected = con;
+        //     console.log(
+        //         this.partsSelected,
+        //         this.machineSelected,
+        //         this.maintenanceHr,
+        //         this.lastRunHr
+        //     );
+        // },
+        // saveMaintenanceHr(hour) {
+        //     if (isNaN(hour) === false) {
+        //         this.maintenanceHr = hour;
+        //     }
+        // },
+        // saveLastRunHr(hour) {
+        //     if (isNaN(hour) === false) {
+        //         this.lastRunHr = hour;
+        //     }
+        // },
     },
 };
 </script>
