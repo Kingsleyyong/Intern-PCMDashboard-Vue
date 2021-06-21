@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import MachineParts from './MachineParts/TableParts';
 
 export default {
