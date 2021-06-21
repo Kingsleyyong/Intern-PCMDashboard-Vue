@@ -8,7 +8,7 @@
                     <v-icon>mdi-cog-outline</v-icon>
                 </v-btn>
             </template>
-            <MaintenanceDialog @input="dialog = false" />
+            <MaintenanceDialog v-if="dialog" @input="dialog = false" />
         </v-dialog>
 
         <v-btn icon @click="goToMaintenanceSchedule">
@@ -50,7 +50,7 @@ export default {
             this.$router.push({ name: 'Home' });
         },
         goToMaintenanceSchedule() {
-          this.$router.push({ name: 'MaintenanceSchedule' });
+            this.$router.push({ name: 'MaintenanceSchedule' });
         },
     },
 };
