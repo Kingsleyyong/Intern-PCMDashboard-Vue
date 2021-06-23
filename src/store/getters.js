@@ -466,4 +466,27 @@ export default {
             }));
         };
     },
+    getSaveButton(state) {
+        return state.saveButton;
+    },
+    getMaintenanceScheduleTableData(state) {
+        const path = state.plant[0].maintenanceSchedule;
+        let arr = path.map((element, index) => ({
+            rowNum: index + 1,
+            machine: element.machine,
+            part: element.part,
+            type: element.pcm !== undefined ? element.pcm : element.maintenanceHr,
+            runHour: element.pcm !== undefined ? '-' : element.runHour,
+            balanceHr: element.pcm !== undefined ? '-' : element.maintenanceHr - element.runHour,
+            lastHP: element.lastHP.toFixed(1),
+            currentHP: element.currentHP.toFixed(1),
+            differentHP: (element.currentHP - element.lastHP).toFixed(1),
+            lastUpdateDate: element.lastUpdateDate * 1000,
+            recentUpdateDate: element.recentUpdateDate * 1000,
+            status: element.status.toUpperCase(),
+            remark: element.remark === undefined || element.remark === null ? '-' : element.remark,
+            editing: false,
+        }));
+        return arr;
+    },
 };

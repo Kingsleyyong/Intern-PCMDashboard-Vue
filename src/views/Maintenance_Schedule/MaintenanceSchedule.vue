@@ -28,23 +28,14 @@
                     <h3 class="font-weight-medium ml-5 mt-3">Maintenance Schedule</h3>
                 </v-row>
 
-                <v-menu :close-on-content-click="false" offset-y>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn color="blue-grey darken-2" fab v-bind="attrs" v-on="on" class="ma-0 mt-2">
-                            <v-icon>mdi-magnify</v-icon>
-                        </v-btn>
-                    </template>
-
-                    <v-card class="pa-5 pt-1">
-                        <v-text-field
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                            @input="search"
-                        ></v-text-field>
-                    </v-card>
-                </v-menu>
+                <v-text-field
+                    class="col-3"
+                    append-icon="mdi-magnify"
+                    label="Search"
+                    single-line
+                    hide-details
+                    v-model="search"
+                ></v-text-field>
             </v-card-title>
 
             <v-card-text>

@@ -23,4 +23,8 @@ export default {
         console.log(plant);
         commit('currentPlantMachineSelected_GraphPage', plant);
     },
+
+    async saveButton({commit}){
+        commit('saveButton')
+    }
 };

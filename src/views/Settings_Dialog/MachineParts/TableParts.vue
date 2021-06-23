@@ -22,7 +22,7 @@
                     </v-tooltip>
                 </div>
 
-                <MachinePartsTable />
+                <MachinePartsTable :rowData="data" ref="form" />
             </v-row>
         </div>
     </div>
@@ -30,18 +30,26 @@
 
 <script>
 import MachinePartsTable from './Table/machines_parts_table';
-import Table from "./Table/table";
 
 export default {
+    props: ['data'],
+    data() {
+        return {
+            childMethodsQueue: [],
+        };
+    },
     methods: {
         duplicate() {
-            this.$emit('duplicate');
+            let tableData = this.$refs.form.getTableData();
+            this.$emit('duplicate', tableData);
+        },
+        saving() {
+            this.$refs.form.saveData();
         },
     },
 
     components: {
         MachinePartsTable,
-        Table
     },
 };
 </script>

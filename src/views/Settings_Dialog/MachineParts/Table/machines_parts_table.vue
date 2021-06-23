@@ -1,13 +1,5 @@
 <template>
-    <v-data-table
-        class="elevation-5"
-        hide-default-footer
-        :headers="headers"
-        :items="row"
-        @input="enterSelect($event)"
-        v-model="tableData"
-        item-key="name"
-    >
+    <v-data-table class="elevation-5" hide-default-footer :headers="headers" :items="row">
         <template v-slot:top>
             <v-row class="pa-3">
                 <v-select
@@ -41,7 +33,7 @@
                 :return-value.sync="item.pcm"
                 row
                 class="pl-8 d-flex justify-space-between"
-                v-if="item.pcm === null || item.pcm === 'no'"
+                v-if="item.pcm === null"
             >
                 <v-radio label="Yes" @click="item.pcm = 'yes'"></v-radio>
                 <v-radio label="No" @click="item.pcm = 'no'"></v-radio>
@@ -53,6 +45,12 @@
             >
                 <v-select :items="getPredictFactorKeys" v-model="item.pcm"></v-select>
                 <v-btn icon class="mt-5" @click="item.pcm = null">
+                    <v-icon>mdi-close-outline</v-icon>
+                </v-btn>
+            </div>
+            <div v-if="item.pcm === 'no'" class="d-flex">
+                <span class="mt-2 ml-7">No PCM Required</span>
+                <v-btn icon @click="item.pcm = null">
                     <v-icon>mdi-close-outline</v-icon>
                 </v-btn>
             </div>
@@ -104,16 +102,17 @@
 import { mapGetters } from 'vuex';
 
 export default {
-    props: ['appendRow'],
+    name: 'MachinePartsTable',
+    props: ['rowData'],
 
     computed: {
-        ...mapGetters(['getPlantMachineID', 'getPredictFactorKeys']),
+        ...mapGetters(['getPlantMachineID', 'getPredictFactorKeys', 'getSaveButton']),
     },
 
     data() {
         return {
-            tableData: [],
             machineSelected: null,
+            tableData: [],
 
             parts: ['Bearing', 'Base Frame', 'Cooling Coil', 'Blower', 'Isolator'],
             numberRule: (num) => {
@@ -150,14 +149,17 @@ export default {
                     align: 'center',
                 },
             ],
-            row: [
-                {
-                    name: '',
-                    pcm: null,
-                    maintenanceHr: '',
-                    lastRuntimeHr: '',
-                },
-            ],
+            row:
+                this.rowData !== null
+                    ? this.rowData
+                    : [
+                          {
+                              name: '',
+                              pcm: null,
+                              maintenanceHr: '',
+                              lastRuntimeHr: '',
+                          },
+                      ],
         };
     },
     methods: {
@@ -172,25 +174,19 @@ export default {
         enterSelect(values) {
             console.log(values);
         },
-        // selectPCM(con) {
-        //     this.pcmSelected = con;
-        //     console.log(
-        //         this.partsSelected,
-        //         this.machineSelected,
-        //         this.maintenanceHr,
-        //         this.lastRunHr
-        //     );
-        // },
-        // saveMaintenanceHr(hour) {
-        //     if (isNaN(hour) === false) {
-        //         this.maintenanceHr = hour;
-        //     }
-        // },
-        // saveLastRunHr(hour) {
-        //     if (isNaN(hour) === false) {
-        //         this.lastRunHr = hour;
-        //     }
-        // },
+
+        getTableData() {
+            let data = this.row.map((element) => ({
+                name: element.name,
+                pcm: element.pcm,
+                maintenanceHr: element.maintenanceHr,
+                lastRuntimeHr: element.lastRuntimeHr,
+            }));
+            return data;
+        },
+        saveData() {
+            console.log(this.row);
+        },
     },
 };
 </script>

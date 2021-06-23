@@ -6,13 +6,14 @@ import vuetify from './plugins/vuetify';
 import Highcharts from 'highcharts';
 import HighchartsVue from 'highcharts-vue';
 import exportingInit from 'highcharts/modules/exporting';
-import exportData from "highcharts/modules/export-data";
-import offlineExporting from "highcharts/modules/offline-exporting";
-import noData from "highcharts/modules/no-data-to-display";
+import exportData from 'highcharts/modules/export-data';
+import offlineExporting from 'highcharts/modules/offline-exporting';
+import noData from 'highcharts/modules/no-data-to-display';
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import isoWeek from 'dayjs/plugin/isoWeek';
+import DatetimePicker from 'vuetify-datetime-picker';
 
 exportingInit(Highcharts);
 exportData(Highcharts);
@@ -24,6 +25,7 @@ dayjs.extend(isoWeek);
 Vue.use(dayjs);
 Vue.use(Highcharts);
 Vue.use(HighchartsVue);
+Vue.use(DatetimePicker);
 Vue.config.productionTip = false;
 
 Highcharts.setOptions({
@@ -38,8 +40,8 @@ Highcharts.setOptions({
             },
         },
     },
-    credits: {enabled: false},
-    title:{
+    credits: { enabled: false },
+    title: {
         align: 'left',
         style: { color: 'white', fontSize: '20px' },
         x: 10,
@@ -56,7 +58,7 @@ Highcharts.setOptions({
         backgroundColor: 'transparent',
         marginTop: 35,
         style: {
-            fontFamily: "sans-serif",
+            fontFamily: 'sans-serif',
         },
     },
     xAxis: {

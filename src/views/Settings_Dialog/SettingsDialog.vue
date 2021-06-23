@@ -32,11 +32,21 @@
                 v-for="(group, index) in partsArray"
                 :key="index"
                 :is="group.type"
-            />
+                :data="group.data"
+            ></div>
         </div>
 
         <v-card-actions>
-            <v-btn fab large right bottom fixed class="mr-4" color="orange darken-4">
+            <v-btn
+                fab
+                large
+                right
+                bottom
+                fixed
+                class="mr-4"
+                color="orange darken-4"
+                @click="saveButton"
+            >
                 <v-icon>mdi-zip-disk</v-icon>
             </v-btn>
         </v-card-actions>
@@ -58,21 +68,25 @@ export default {
 
     data() {
         return {
-            partsArray: [{ type: 'MachineParts' }],
+            partsArray: [{ type: 'MachineParts', data: null }],
         };
     },
 
     methods: {
         close() {
-            this.partsArray= [{ type: 'MachineParts' }] ;
-            this.$emit('input');
+            if (confirm("Your settings won't be saved, are you sure to proceed?")) {
+                this.$emit('input');
+            }
         },
         ...mapActions(['currentPlant']),
 
-        duplicate() {
-            let item = { type: 'MachineParts' };
+        duplicate(tableData) {
+            let item = { type: 'MachineParts', data: tableData };
             this.partsArray.push(item);
         },
+
+        ...mapActions(['saveButton']),
+
     },
 };
 </script>

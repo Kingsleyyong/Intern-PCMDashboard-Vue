@@ -1104,12 +1104,49 @@
         "Temperature": "mdi-thermometer-lines",
         "Normalization Hit Count": "mdi-transit-connection-horizontal",
         "Energy Usage": "mdi-flash"
-      }
+      },
+      "maintenanceSchedule": [
+        {
+          "machine": "AHU 14",
+          "part": "Cooling Coil",
+          "pcm": "Normalization Hit Count",
+          "lastHP": 50.0,
+          "currentHP": 60.0,
+          "lastUpdateDate": 1619755200,
+          "recentUpdateDate": 1622347200,
+          "status": "pending",
+          "remark": "No comment."
+        },
+        {
+          "machine": "FCU S2",
+          "part": "Filter",
+          "maintenanceHr": 5000,
+          "runHour": 3000,
+          "lastHP": 56.0,
+          "currentHP": 90.0,
+          "lastUpdateDate": 1619755200,
+          "recentUpdateDate": 1622347200,
+          "status": "completed"
+        },
+        {
+          "machine": "Split Unit F1-121",
+          "part": "Blower",
+          "maintenanceHr": 9000,
+          "runHour": 3000,
+          "lastHP": 100.0,
+          "currentHP": 30.0,
+          "lastUpdateDate": 1619755200,
+          "recentUpdateDate": 1622347200,
+          "status": "assigned",
+          "remark": null
+        }
+      ]
     }
   ],
   "selectedPlant": "Plant 01",
   "selectedPlantMachine_HeatMap": "Machine 01",
   "firstMachineCompare": "Please Choose a MachineID",
   "secondMachineCompare": "Please Choose a MachineID",
-  "selectedPlantMachine_GraphPage": "Machine 01"
+  "selectedPlantMachine_GraphPage": "Machine 01",
+  "saveButton": ""
 }
