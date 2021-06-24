@@ -22,7 +22,7 @@
                     </v-tooltip>
                 </div>
 
-                <MachinePartsTable :rowData="data" ref="form" />
+                <MachinePartsTable ref="form" :rowData="data" pass="saveEvent" />
             </v-row>
         </div>
     </div>
@@ -30,13 +30,20 @@
 
 <script>
 import MachinePartsTable from './Table/machines_parts_table';
+import Vue from 'vue';
 
 export default {
-    props: ['data'],
+    props: ['data', 'passing'],
     data() {
         return {
             childMethodsQueue: [],
+            saveEvent: new Vue(),
         };
+    },
+    mounted() {
+        this.passing.$on('gettingData', () => {
+            this.$emit('tableData', this.$refs.form.getRowData());
+        });
     },
     methods: {
         duplicate() {
@@ -44,7 +51,8 @@ export default {
             this.$emit('duplicate', tableData);
         },
         saving() {
-            this.$refs.form.saveData();
+            console.log('hi');
+            // this.saveEvent.$emit('saveTrigger')
         },
     },
 

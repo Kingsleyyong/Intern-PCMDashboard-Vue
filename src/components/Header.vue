@@ -3,23 +3,44 @@
         <v-spacer />
 
         <v-dialog v-model="dialog" fullscreen>
+            <!--            <v-tooltip bottom>-->
             <template v-slot:activator="{ on, attrs }">
-                <v-btn icon v-bind="attrs" v-on="on">
+                <v-btn v-bind="attrs" v-on="on" icon>
                     <v-icon>mdi-cog-outline</v-icon>
                 </v-btn>
             </template>
-            <MaintenanceDialog v-if="dialog" @input="dialog = false" />
+            <!--            Settings Page-->
+            <!--            </v-tooltip>-->
+            <MaintenanceDialog v-if="dialog" @input="closeDialog" />
         </v-dialog>
 
-        <v-btn icon @click="goToMaintenanceSchedule">
-            <v-icon>mdi-note-text-outline</v-icon>
-        </v-btn>
-        <v-btn icon>
-            <v-icon>mdi-bell-outline</v-icon>
-        </v-btn>
-        <v-btn icon @click="goToHome">
-            <v-icon>mdi-home-outline</v-icon>
-        </v-btn>
+        <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn v-bind="attrs" v-on="on" icon @click="goToMaintenanceSchedule">
+                    <v-icon>mdi-note-text-outline</v-icon>
+                </v-btn>
+            </template>
+            Maintenance Schedule Page
+        </v-tooltip>
+
+        <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn v-bind="attrs" v-on="on" icon>
+                    <v-icon>mdi-bell-outline</v-icon>
+                </v-btn>
+            </template>
+            Notification
+        </v-tooltip>
+
+        <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn v-bind="attrs" v-on="on" icon @click="goToHome">
+                    <v-icon>mdi-home-outline</v-icon>
+                </v-btn>
+            </template>
+            Home Page
+        </v-tooltip>
+
         <v-img
             class="ml-3 mr-3"
             max-height="100"
@@ -51,6 +72,10 @@ export default {
         },
         goToMaintenanceSchedule() {
             this.$router.push({ name: 'MaintenanceSchedule' });
+        },
+        closeDialog() {
+            this.dialog = false;
+            // this.$router.go();
         },
     },
 };

@@ -1129,7 +1129,7 @@
           "status": "completed"
         },
         {
-          "machine": "Split Unit F1-121",
+          "machine": "Machine 01",
           "part": "Blower",
           "maintenanceHr": 9000,
           "runHour": 3000,

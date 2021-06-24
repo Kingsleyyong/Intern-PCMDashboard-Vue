@@ -466,9 +466,9 @@ export default {
             }));
         };
     },
-    getSaveButton(state) {
-        return state.saveButton;
-    },
+    // getSaveButton(state) {
+    //     return state.saveButton;
+    // },
     getMaintenanceScheduleTableData(state) {
         const path = state.plant[0].maintenanceSchedule;
         let arr = path.map((element, index) => ({
@@ -478,12 +478,19 @@ export default {
             type: element.pcm !== undefined ? element.pcm : element.maintenanceHr,
             runHour: element.pcm !== undefined ? '-' : element.runHour,
             balanceHr: element.pcm !== undefined ? '-' : element.maintenanceHr - element.runHour,
-            lastHP: element.lastHP.toFixed(1),
-            currentHP: element.currentHP.toFixed(1),
-            differentHP: (element.currentHP - element.lastHP).toFixed(1),
-            lastUpdateDate: element.lastUpdateDate * 1000,
-            recentUpdateDate: element.recentUpdateDate * 1000,
-            status: element.status.toUpperCase(),
+            lastHP: element.lastHP === null ? null : element.lastHP.toFixed(1),
+            currentHP: element.currentHP === null ? null : element.currentHP.toFixed(1),
+            differentHP:
+                element.lastHP === null && element.currentHP === null
+                    ? null
+                    : (element.currentHP - element.lastHP).toFixed(1),
+            lastUpdateDate:
+                element.lastUpdateDate === null ? null : new Date(element.lastUpdateDate * 1000),
+            recentUpdateDate:
+                element.recentUpdateDate === null
+                    ? null
+                    : new Date(element.recentUpdateDate * 1000),
+            status: element.status === null ? '-' : element.status.toUpperCase(),
             remark: element.remark === undefined || element.remark === null ? '-' : element.remark,
             editing: false,
         }));

@@ -1,17 +1,18 @@
 <template>
-    <v-data-table class="elevation-5" hide-default-footer :headers="headers" :items="row">
+    <v-data-table :headers="headers" :items="row" class="elevation-5" hide-default-footer>
         <template v-slot:top>
             <v-row class="pa-3">
                 <v-select
                     v-model="machineSelected"
                     :items="getPlantMachineID"
-                    label="Please choose a Machine ID."
+                    auto
                     class="pl-3"
+                    label="Please choose a Machine ID."
                 ></v-select>
 
                 <v-tooltip bottom>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn v-bind="attrs" v-on="on" @click="appendTableRow" large class="ma-3">
+                        <v-btn v-bind="attrs" v-on="on" class="ma-3" large @click="appendTableRow">
                             <v-icon> mdi-bookmark-plus-outline</v-icon>
                         </v-btn>
                     </template>
@@ -22,18 +23,18 @@
 
         <template v-slot:item.name="{ item }">
             <v-combobox
-                label="Please Write or Select"
-                :items="parts"
                 v-model="item.name"
+                :items="parts"
+                label="Please Write or Select"
             ></v-combobox>
         </template>
 
         <template v-slot:item.pcm="{ item }">
             <v-radio-group
-                :return-value.sync="item.pcm"
-                row
-                class="pl-8 d-flex justify-space-between"
                 v-if="item.pcm === null"
+                :return-value.sync="item.pcm"
+                class="pl-8 d-flex justify-space-between"
+                row
             >
                 <v-radio label="Yes" @click="item.pcm = 'yes'"></v-radio>
                 <v-radio label="No" @click="item.pcm = 'no'"></v-radio>
@@ -43,8 +44,8 @@
                 v-if="item.pcm === 'yes' || getPredictFactorKeys.includes(item.pcm)"
                 class="d-flex"
             >
-                <v-select :items="getPredictFactorKeys" v-model="item.pcm"></v-select>
-                <v-btn icon class="mt-5" @click="item.pcm = null">
+                <v-select v-model="item.pcm" :items="getPredictFactorKeys"></v-select>
+                <v-btn class="mt-5" icon @click="item.pcm = null">
                     <v-icon>mdi-close-outline</v-icon>
                 </v-btn>
             </div>
@@ -69,8 +70,8 @@
             <v-text-field
                 v-if="item.pcm === 'no'"
                 v-model="item.maintenanceHr"
-                label="Please enter number:"
                 :rules="[numberRule]"
+                label="Please enter number:"
                 single-line
             >
             </v-text-field>
@@ -89,8 +90,8 @@
             <v-text-field
                 v-if="item.pcm === 'no'"
                 v-model="item.lastRuntimeHr"
-                label="Please enter number:"
                 :rules="[numberRule]"
+                label="Please enter number:"
                 single-line
             >
             </v-text-field>
@@ -103,16 +104,11 @@ import { mapGetters } from 'vuex';
 
 export default {
     name: 'MachinePartsTable',
-    props: ['rowData'],
-
-    computed: {
-        ...mapGetters(['getPlantMachineID', 'getPredictFactorKeys', 'getSaveButton']),
-    },
+    props: ['rowData', 'pass'],
 
     data() {
         return {
             machineSelected: null,
-            tableData: [],
 
             parts: ['Bearing', 'Base Frame', 'Cooling Coil', 'Blower', 'Isolator'],
             numberRule: (num) => {
@@ -176,17 +172,24 @@ export default {
         },
 
         getTableData() {
-            let data = this.row.map((element) => ({
+            return this.row.map((element) => ({
+                machine: this.machineSelected,
                 name: element.name,
                 pcm: element.pcm,
                 maintenanceHr: element.maintenanceHr,
                 lastRuntimeHr: element.lastRuntimeHr,
             }));
-            return data;
         },
-        saveData() {
-            console.log(this.row);
+        getRowData() {
+            return {
+                machine: this.machineSelected,
+                data: this.row,
+            };
         },
+    },
+
+    computed: {
+        ...mapGetters(['getPlantMachineID', 'getPredictFactorKeys']),
     },
 };
 </script>

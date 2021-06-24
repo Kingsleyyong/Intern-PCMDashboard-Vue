@@ -24,7 +24,39 @@ export default {
         commit('currentPlantMachineSelected_GraphPage', plant);
     },
 
-    async saveButton({commit}){
-        commit('saveButton')
-    }
+    async savingSettingsData({ commit }, data) {
+        let obj = [];
+        data.map((machine) => {
+            machine.data.map((part) => {
+                if (isNaN(part.pcm)) {
+                    obj.push({
+                        machine: machine.machine,
+                        part: part.name,
+                        pcm: part.pcm,
+                        lastHP: null,
+                        currentHP: null,
+                        lastUpdateDate: null,
+                        recentUpdateDate: null,
+                        status: null,
+                        remark: null,
+                    });
+                } else {
+                    obj.push({
+                        machine: machine.machine,
+                        part: part.name,
+                        maintenanceHr: part.maintenanceHr,
+                        runHour: null,
+                        lastRunHour: part.lastRunHour,
+                        lastHP: null,
+                        currentHP: null,
+                        lastUpdateDate: null,
+                        recentUpdateDate: null,
+                        status: null,
+                        remark: null,
+                    });
+                }
+            });
+        });
+        commit('settingsData', obj);
+    },
 };

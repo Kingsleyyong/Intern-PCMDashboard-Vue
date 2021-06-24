@@ -6,9 +6,9 @@
                 <v-row>
                     <div class="ml-10 lime darken-3 pa-2 pl-8 pr-5 pb-0 rounded-t-xl">
                         {{ getCurrentSelectedPlant }}
-                        <v-menu offset-x allow-overflow max-height="300">
+                        <v-menu allow-overflow max-height="300" offset-x>
                             <template v-slot:activator="{ on, attrs }">
-                                <v-btn icon v-bind="attrs" v-on="on">
+                                <v-btn v-bind="attrs" v-on="on" icon>
                                     <v-icon>mdi-menu-down</v-icon>
                                 </v-btn>
                             </template>
@@ -29,12 +29,12 @@
                 </v-row>
 
                 <v-text-field
-                    class="col-3"
+                    v-model="search"
                     append-icon="mdi-magnify"
+                    class="col-3"
+                    hide-details
                     label="Search"
                     single-line
-                    hide-details
-                    v-model="search"
                 ></v-text-field>
             </v-card-title>
 
@@ -60,8 +60,10 @@ export default {
     },
     data() {
         return {
+            componentKey: 0,
             search: '',
         };
     },
+
 };
 </script>

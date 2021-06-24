@@ -19,9 +19,20 @@ export default {
         state.selectedPlantMachine_GraphPage = plant;
     },
 
-    saveButton(state) {
-        state.saveButton =
-            state.saveButton === '' || state.saveButton === 'false' ? 'true' : 'false';
-        console.log(state.saveButton);
+    settingsData(state, data) {
+        let path = state.plant[0].maintenanceSchedule,
+            pushArr = data;
+        path.map((pathItem, pathIndex) => {
+            data.map((dataItem, dataIndex) => {
+                if (pathItem.part === dataItem.part && pathItem.machine === dataItem.machine) {
+                    state.plant[0].maintenanceSchedule[pathIndex] = dataItem;
+                    pushArr.splice(dataIndex, 1);
+                }
+            });
+        });
+
+        pushArr.map((m) => {
+            state.plant[0].maintenanceSchedule.push(m);
+        });
     },
 };

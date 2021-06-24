@@ -3,9 +3,9 @@
         <v-card-title class="d-flex justify-space-between">
             <div class="ml-10 teal lighten-1 pa-2 pl-8 pr-5 rounded-t-xl">
                 {{ getCurrentSelectedPlant }}
-                <v-menu offset-x allow-overflow max-height="300">
+                <v-menu allow-overflow max-height="300" offset-x>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon v-bind="attrs" v-on="on">
+                        <v-btn v-bind="attrs" v-on="on" icon>
                             <v-icon>mdi-menu-down</v-icon>
                         </v-btn>
                     </template>
@@ -27,24 +27,25 @@
         </v-card-title>
 
         <div style="overflow-y: auto">
-            <div
-                @duplicate="duplicate"
+            <MachineParts
                 v-for="(group, index) in partsArray"
                 :key="index"
-                :is="group.type"
                 :data="group.data"
-            ></div>
+                :passing="saveEvent"
+                @duplicate="duplicate"
+                @tableData="storing"
+            />
         </div>
 
         <v-card-actions>
             <v-btn
-                fab
-                large
-                right
                 bottom
-                fixed
                 class="mr-4"
                 color="orange darken-4"
+                fab
+                fixed
+                large
+                right
                 @click="saveButton"
             >
                 <v-icon>mdi-zip-disk</v-icon>
@@ -56,6 +57,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import MachineParts from './MachineParts/TableParts';
+import Vue from 'vue';
 
 export default {
     components: {
@@ -68,25 +70,49 @@ export default {
 
     data() {
         return {
-            partsArray: [{ type: 'MachineParts', data: null }],
+            saveEvent: new Vue(),
+            partsArray: [{ data: null }],
+            fullData: [],
         };
     },
 
     methods: {
+        ...mapActions(['savingSettingsData']),
+
         close() {
             if (confirm("Your settings won't be saved, are you sure to proceed?")) {
-                this.$emit('input');
+                this.$emit('input'); //close dialog
             }
         },
-        ...mapActions(['currentPlant']),
 
         duplicate(tableData) {
-            let item = { type: 'MachineParts', data: tableData };
-            this.partsArray.push(item);
+            this.partsArray.push({ data: tableData });
         },
 
-        ...mapActions(['saveButton']),
+        storing(tableData) {
+            this.fullData.push(
+                // this.fullData
+                //     .filter((item) => item.machine === tableData.machine)
+                //     .map((item) => ({
+                //         machine: item.machine,
+                //         data: {
+                //             name: item.name,
+                //             pcm: item.pcm,
+                //             maintenanceHr: item.maintenanceHr,
+                //             lastRuntimeHr: item.lastRuntimeHr,
+                //         },
+                //     }))
+                tableData
+            );
+        },
 
+        saveButton() {
+            this.saveEvent.$emit('gettingData');
+            this.savingSettingsData(this.fullData);
+            console.log(this.fullData);
+            alert('Saved successfully!');
+            this.$emit('input'); //close dialog
+        },
     },
 };
 </script>

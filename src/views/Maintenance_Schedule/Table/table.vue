@@ -1,9 +1,9 @@
 <template>
     <v-data-table
-        class="scheduleTable subtitle-1"
         :headers="headers"
         :items="data"
         :search="search"
+        class="scheduleTable subtitle-1"
         multi-sort
     >
         <template v-slot:item.lastHP="{ item }">
@@ -107,7 +107,7 @@
                 {{ item.remark }}
             </template>
             <template v-else-if="item.editing === true">
-                <v-text-field label="Please write: " v-model="item.remark"></v-text-field>
+                <v-text-field v-model="item.remark" label="Please write: "></v-text-field>
             </template>
         </template>
 
@@ -132,18 +132,20 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import dayjs from 'dayjs';
 
 export default {
     props: ['search'],
     computed: {
         ...mapGetters(['getMaintenanceScheduleTableData']),
     },
-    mounted() {
+    mounted: function () {
         this.getTableData();
     },
 
     methods: {
+        setDate(){
+
+        },
         getTableData() {
             this.data = this.getMaintenanceScheduleTableData;
         },
@@ -181,7 +183,7 @@ export default {
                 {
                     text: 'Machines',
                     align: 'center',
-                    sortable: false,
+                    sortable: true,
                     value: 'machine',
                     width: '7rem',
                 },
