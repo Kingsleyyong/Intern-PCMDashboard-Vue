@@ -1,5 +1,5 @@
 <template>
-    <v-card elevation="5" outlined >
+    <v-card :height="height" elevation="5" outlined>
         <v-card-title class="pa-0 pt-4 text-h6 font-weight-bold subtitle-1 justify-center"
             >Total Machines Status
         </v-card-title>
@@ -20,6 +20,16 @@ export default {
 
     computed: {
         ...mapGetters(['getMachineStatus', 'getTotalMachine']),
+        height() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'md':
+                    return 250;
+                case 'lg':
+                    return 600;
+                case 'xl':
+                    return 800;
+            }
+        },
     },
 };
 </script>

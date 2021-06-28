@@ -3,14 +3,16 @@
         <v-spacer />
 
         <v-dialog v-model="dialog" fullscreen>
-            <!--            <v-tooltip bottom>-->
-            <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" icon>
-                    <v-icon>mdi-cog-outline</v-icon>
-                </v-btn>
+            <template #activator="{ on: onDialog }">
+                <v-tooltip bottom>
+                    <template #activator="{ on: onTooltip }">
+                        <v-btn v-on="{ ...onDialog, ...onTooltip }" icon>
+                            <v-icon>mdi-cog-outline</v-icon>
+                        </v-btn>
+                    </template>
+                    Settings Page
+                </v-tooltip>
             </template>
-            <!--            Settings Page-->
-            <!--            </v-tooltip>-->
             <MaintenanceDialog v-if="dialog" @input="closeDialog" />
         </v-dialog>
 
@@ -23,14 +25,19 @@
             Maintenance Schedule Page
         </v-tooltip>
 
-        <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" icon>
-                    <v-icon>mdi-bell-outline</v-icon>
-                </v-btn>
+        <v-menu offset-y>
+            <template #activator="{ on: onMenu }">
+                <v-tooltip bottom icon>
+                    <template #activator="{ on: onTooltip }">
+                        <v-btn v-on="{ ...onMenu, ...onTooltip }" icon>
+                            <v-icon>mdi-bell-outline</v-icon>
+                        </v-btn>
+                    </template>
+                    Notification
+                </v-tooltip>
             </template>
-            Notification
-        </v-tooltip>
+            <Notification />
+        </v-menu>
 
         <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
@@ -52,6 +59,7 @@
 
 <script>
 import MaintenanceDialog from '../views/Settings_Dialog/SettingsDialog';
+import Notification from '../views/notifications/noti-menu';
 
 export default {
     name: 'Header',
@@ -64,6 +72,7 @@ export default {
 
     components: {
         MaintenanceDialog,
+        Notification,
     },
 
     methods: {

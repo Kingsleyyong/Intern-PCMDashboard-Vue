@@ -23,15 +23,15 @@
                 </span>
             </v-row>
             <v-row class="d-flex justify-center mt-12">
-                <p class="font-weight-bold" style="font-size: 10vw" :style="text_Theme">
+                <p class="font-weight-bold" style="font-size: 10vmax" :style="text_Theme">
                     {{ dataObj.machineNum_Today }}
                 </p>
             </v-row>
             <v-row class="d-flex justify-center mt-14">
-                <p class="font-weight-light" style="font-size: 1vw">Machine</p>
+                <p class="font-weight-light" style="font-size: 1vmax">Machine</p>
             </v-row>
             <v-row class="d-flex justify-center ma-0">
-                <caption class="font-italic font-weight-thin" style="font-size: 0.8vw">
+                <caption class="font-italic font-weight-thin" style="font-size: 0.8vmax">
                     Changes is compared to last month data.
                 </caption>
             </v-row>

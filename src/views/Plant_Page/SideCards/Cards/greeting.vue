@@ -1,8 +1,12 @@
 <template>
     <v-card elevation="5" outlined>
-        <v-card-title style="font-size: 1vw">{{ greet }}</v-card-title>
-        <v-card-subtitle> {{ getUsername }}</v-card-subtitle>
-        <v-card-text class="d-flex justify-space-between">
+        <v-card-title :class="{ caption: $vuetify.breakpoint.md }">{{ greet }}</v-card-title>
+        <v-card-subtitle :class="{ overline: $vuetify.breakpoint.md }">
+            {{ getUsername }}
+        </v-card-subtitle>
+        <v-card-text
+            class="d-flex justify-space-between"
+        >
             <div class="d-inline-flex">{{ time }}</div>
             <div class="d-inline-flex">{{ date }}</div>
         </v-card-text>
