@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 
+
 export default {
     getPlantCount(state) {
         let array = [];
@@ -7,14 +8,12 @@ export default {
             let name = i > 0 && i < 10 ? 'Plant 0' + i : 'Plant ' + i;
             array.push(name);
         }
-
         return array;
     },
 
     getUsername(state) {
         return state.account[0].username;
     },
-
     getMeterDetails(state) {
         return state.account[0].location;
     },
@@ -52,6 +51,7 @@ export default {
     getPlantMachineData(state) {
         return state.plant[0].data;
     },
+
     getPlantMachineID(state) {
         let machineId = [],
             normalPath = state.plant[0].data[0].machineData,
@@ -328,7 +328,7 @@ export default {
             }
 
             graphName =
-                graphName === 'Predicted Health'
+              graphName === 'Predicted Health'
                     ? 'predictHealth'
                     : graphName === 'Vibration'
                     ? 'vibration'
