@@ -1,3 +1,10 @@
+import axios from 'axios';
+
+const api = axios.create({
+    baseURL: process.env.VUE_APP_API_END_POINT,
+    timeout: 0 // default is `0` (no timeout)
+});
+
 export default {
     async currentPlant({ commit }, plant) {
         console.log(plant);
@@ -58,5 +65,10 @@ export default {
             });
         });
         commit('settingsData', obj);
+    },
+    async getMeterDetail({ commit }) {
+        api.get('/config').then((response) => {
+            commit('SET_METER', response.data.data);
+        });
     },
 };

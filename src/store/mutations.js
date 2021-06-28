@@ -35,4 +35,10 @@ export default {
             state.plant[0].maintenanceSchedule.push(m);
         });
     },
+    SET_METER(state, data){
+        const {location, longitude, latitude} = data;
+        state.account[0].location.name = location;
+        state.account[0].location.lon = longitude;
+        state.account[0].location.lat = latitude;
+    },
 };
