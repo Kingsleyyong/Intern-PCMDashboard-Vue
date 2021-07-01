@@ -1,12 +1,10 @@
 <template>
-    <v-card elevation="5" outlined>
-        <v-card-title :class="{ caption: $vuetify.breakpoint.md }">{{ greet }}</v-card-title>
-        <v-card-subtitle :class="{ overline: $vuetify.breakpoint.md }">
-            {{ getUsername }}
-        </v-card-subtitle>
-        <v-card-text
-            class="d-flex justify-space-between"
-        >
+    <v-card elevation="5" outlined >
+        <v-card-title class="font-weight-bold text-md-subtitle-2 text-lg-h6  text-xl-h4">{{ greet }}</v-card-title>
+        <!--        <v-card-subtitle :class="{ overline: $vuetify.breakpoint.md }">-->
+        <!--            {{ getUsername }}-->
+        <!--        </v-card-subtitle>-->
+        <v-card-text class="d-flex justify-space-between">
             <div class="d-inline-flex">{{ time }}</div>
             <div class="d-inline-flex">{{ date }}</div>
         </v-card-text>
@@ -31,8 +29,8 @@ export default {
     data() {
         return {
             greet: 'Hello',
-            date: dayjs().format('DD MMM YYYY'),
-            time: dayjs().format('HH:mm:ss'),
+            date: dayjs().format('DD/MM/YY'),
+            time: dayjs().format('HH:mm'),
         };
     },
     computed: {
@@ -41,10 +39,10 @@ export default {
 
     methods: {
         getTime() {
-            return dayjs().format('HH:mm:ss');
+            return dayjs().format('HH:mm');
         },
         getDate() {
-            return dayjs().format('DD MMM YYYY');
+            return dayjs().format('DD/MM/YY');
         },
         getGreet() {
             const today = new Date();

@@ -1,10 +1,10 @@
 <template>
-    <v-card width="58.7%">
-        <v-card-title class="grey darken-3 pa-2 d-flex justify-space-between">
+    <v-card :height="height" width="58.7%">
+        <v-card-title class="grey darken-3 pa-1 d-flex justify-space-between text-sm-subtitle-2">
             Predictive Health Score / {{ getCurrentSelectedPlantMachine }}
             <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn elevation="0" small icon v-bind="attrs" v-on="on">
+                    <v-btn v-bind="attrs" v-on="on" elevation="0" icon small>
                         <v-icon>mdi-arrow-down-drop-circle-outline</v-icon>
                     </v-btn>
                 </template>
@@ -20,14 +20,12 @@
             </v-menu>
         </v-card-title>
 
-        <v-main>
-            <HeatMap :chartData="getMachineHeatmapData(getCurrentSelectedPlantMachine)" />
-        </v-main>
+        <HeatMap :chartData="getMachineHeatmapData(getCurrentSelectedPlantMachine)" :height="height-30"/>
     </v-card>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import HeatMap from '../../../../components/Charts/HeatMap';
 
 export default {
@@ -40,12 +38,25 @@ export default {
     //     },
     // },
     computed: {
-        ...mapGetters(['getPlantMachineID', 'getCurrentSelectedPlantMachine', 'getMachineHeatmapData']),
+        ...mapGetters([
+            'getPlantMachineID',
+            'getCurrentSelectedPlantMachine',
+            'getMachineHeatmapData',
+        ]),
+        height() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'md':
+                    return 335;
+                case 'lg':
+                    return 400;
+                case 'xl':
+                    return 800;
+            }
+        },
     },
 
     methods: {
         ...mapActions(['currentPlantMachine']),
-
     },
 };
 </script>
