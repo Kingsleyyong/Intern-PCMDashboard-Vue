@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
     baseURL: process.env.VUE_APP_API_END_POINT,
-    timeout: 0 // default is `0` (no timeout)
+    timeout: 0, // default is `0` (no timeout)
 });
 
 export default {
@@ -66,9 +66,13 @@ export default {
         });
         commit('settingsData', obj);
     },
-    async getMeterDetail({ commit }) {
+    async getConfig({ commit }) {
         api.get('/config').then((response) => {
-            commit('SET_METER', response.data.data);
+            commit('SET_CONFIG', response.data.data);
         });
     },
+    // async getBenmarkData({ commit }, data) {
+    //     console.log(data);
+    //     commit('SET_BENCHMARK', data);
+    // },
 };

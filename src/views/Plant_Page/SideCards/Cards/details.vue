@@ -44,9 +44,8 @@ export default {
     computed: {
         ...mapGetters(['getMeterDetails']),
     },
-
   mounted(){
-        this.$store.dispatch('getMeterDetail');
+        this.$store.dispatch('getConfig');
   },
 
 };

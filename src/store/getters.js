@@ -1,13 +1,16 @@
 import dayjs from 'dayjs';
 
-
 export default {
     getPlantCount(state) {
         let array = [];
-        for (let i = state.plant[0].plantId; i <= 15; i++) {
-            let name = i > 0 && i < 10 ? 'Plant 0' + i : 'Plant ' + i;
-            array.push(name);
-        }
+        state.plant.forEach((item) => {
+            array.push(item.plantId);
+        });
+
+        // for (let i = state.plant[0].plantId; i <= 15; i++) {
+        //     let name = i > 0 && i < 10 ? 'Plant 0' + i : 'Plant ' + i;
+        //     array.push(name);
+        // }
         return array;
     },
 
@@ -328,7 +331,7 @@ export default {
             }
 
             graphName =
-              graphName === 'Predicted Health'
+                graphName === 'Predicted Health'
                     ? 'predictHealth'
                     : graphName === 'Vibration'
                     ? 'vibration'

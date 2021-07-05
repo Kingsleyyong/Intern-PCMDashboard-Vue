@@ -56,6 +56,7 @@ export default {
             line: true,
             bubbleLine: false,
             heatmap: false,
+            deviceId: '',
         };
     },
 
@@ -66,5 +67,9 @@ export default {
             this.heatmap = criteria === 'month';
         },
     },
+    // mounted() {
+    //     this.deviceId = this.getSelectedPlantMachine_GraphPage
+    //     this.$store.dispatch('getBenmarkData', { deviceId: this.deviceId });
+    // },
 };
 </script>

@@ -1143,7 +1143,7 @@
       ]
     }
   ],
-  "selectedPlant": "Plant 01",
+  "selectedPlant": "plant1",
   "selectedPlantMachine_HeatMap": "Machine 01",
   "firstMachineCompare": "Please Choose a MachineID",
   "secondMachineCompare": "Please Choose a MachineID",

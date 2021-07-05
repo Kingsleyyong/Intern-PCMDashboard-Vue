@@ -11,8 +11,7 @@
                     </template>
                     <v-list>
                         <v-list-item v-for="(item, index) in getPlantCount" :key="index" link>
-                            <v-list-item-title @click="currentPlant(item)"
-                                >{{ item }}
+                            <v-list-item-title @click="currentPlant(item)">{{ item }}
                             </v-list-item-title>
                         </v-list-item>
                     </v-list>

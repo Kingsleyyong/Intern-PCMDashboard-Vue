@@ -9,7 +9,7 @@
             </div>
             <v-tabs-slider :style="bg_Theme" />
             <v-tab
-                v-for="tag in list"
+                v-for="tag of list"
                 :key="tag"
                 v-on:click="$emit('setCurrentPlantORMachine', tag)"
                 class="ml-2 mr-2"
@@ -23,6 +23,7 @@
 
 <script>
 export default {
+
     name: 'Toolbar',
 
     props: ['list', 'plantId', 'themeColor'],
