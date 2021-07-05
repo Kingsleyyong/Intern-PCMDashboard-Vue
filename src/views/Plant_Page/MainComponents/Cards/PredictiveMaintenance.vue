@@ -1,11 +1,12 @@
 <template>
-    <v-card width="40.7%" max-height="453" style="display: flex; flex-direction: column">
-        <v-card-title class="grey darken-3 pa-2 d-flex justify-space-between">
+    <v-card :height="height" style="display: flex; flex-direction: column" width="40.7%">
+        <v-card-title class="grey darken-3 pa-1 d-flex justify-space-between text-sm-subtitle-2">
             Predictive Maintenance List
             <v-menu :close-on-content-click="false" offset-y>
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon v-bind="attrs" v-on="on">
-                        <v-icon>mdi-magnify</v-icon>
+                    <v-btn v-bind="attrs" v-on="on" icon>
+                        <v-icon v-show="$vuetify.breakpoint.lgAndUp">mdi-magnify</v-icon>
+                        <v-icon v-show="$vuetify.breakpoint.mdOnly" small>mdi-magnify</v-icon>
                     </v-btn>
                 </template>
 
@@ -13,22 +14,22 @@
                     <v-text-field
                         v-model="search"
                         append-icon="mdi-magnify"
+                        hide-details
                         label="Search"
                         single-line
-                        hide-details
                     ></v-text-field>
                 </v-card>
             </v-menu>
         </v-card-title>
 
-        <v-card-text style="overflow-y: auto" class="pa-0">
+        <v-card-text class="pa-0" style="overflow-y: auto">
             <v-data-table
                 :headers="getPredictedFactor"
                 :items="getPredictPlantMachine"
                 :search="search"
-                multi-sort
-                hide-default-footer
                 disable-pagination
+                hide-default-footer
+                multi-sort
             >
                 <template v-slot:header.vibrate="{ header }">
                     <v-icon>{{ header.text }}</v-icon>
@@ -53,7 +54,18 @@ import { mapGetters } from 'vuex';
 export default {
     computed: {
         ...mapGetters(['getPredictedFactor', 'getPredictPlantMachine']),
+        height () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'md':
+                    return 335;
+                case 'lg':
+                    return 400;
+                case 'xl':
+                    return 800;
+            }
+        },
     },
+
     data() {
         return {
             search: '',

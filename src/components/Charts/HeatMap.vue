@@ -11,7 +11,7 @@ import heatmap from 'highcharts/modules/heatmap';
 heatmap(Highcharts);
 
 export default {
-    props: ['chartData', 'chartName'],
+    props: ['chartData', 'chartName', 'height'],
 
     watch: {
         series(newVal) {
@@ -65,6 +65,7 @@ export default {
             if (!chartName) {
                 return {
                     type: 'heatmap',
+                    height: this.height,
                 };
             } else {
                 return {

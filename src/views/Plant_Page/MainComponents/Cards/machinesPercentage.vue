@@ -1,39 +1,43 @@
 <template>
-    <v-card width="33%" height="25%" @click="goToGraph(dataObj, plant, dataObj.name)">
-        <v-card-title class="pa-2 d-flex justify-space-between" :style="background_Theme">
+    <v-card :height="height" width="33%" @click="goToGraph(dataObj, plant, dataObj.name)">
+        <v-card-title
+            :style="background_Theme"
+            class="pa-1 d-flex justify-space-between text-md-subtitle-2 text-lg-h6"
+        >
             <h3 class="">{{ dataObj.name }}</h3>
-            <v-dialog width="50%" overlay-color="grey lighten-3">
+            <v-dialog overlay-color="grey lighten-3" width="50%">
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn elevation="0" small icon v-bind="attrs" v-on="on">
-                        <v-icon>mdi-scale-balance</v-icon>
+                    <v-btn v-bind="attrs" v-on="on" elevation="0" icon small>
+                        <v-icon v-show="$vuetify.breakpoint.lgAndUp">mdi-scale-balance</v-icon>
+                        <v-icon v-show="$vuetify.breakpoint.mdOnly" small>mdi-scale-balance</v-icon>
                     </v-btn>
                 </template>
                 <MachineComparison :name="dataObj.name" />
             </v-dialog>
         </v-card-title>
         <v-card-text class="pa-5">
-            <v-row class="title d-flex flex-row-reverse pr-1" :style="text_Theme">
-                <span v-if="Math.sign(diferencePercentage) === -1">
-                    <v-icon large :style="text_Theme">mdi-arrow-down</v-icon>
-                    {{ Math.abs(diferencePercentage) }}
+            <v-row :style="text_Theme" class="title d-flex flex-row-reverse pr-1">
+                <span v-if="Math.sign(differencePercentage) === -1">
+                    <v-icon :style="text_Theme" large>mdi-arrow-down</v-icon>
+                    {{ Math.abs(differencePercentage) }}
                 </span>
                 <span v-else>
-                    <v-icon large :style="text_Theme">mdi-arrow-up</v-icon>
-                    {{ diferencePercentage }}
+                    <v-icon :style="text_Theme" large>mdi-arrow-up</v-icon>
+                    {{ differencePercentage }}
                 </span>
             </v-row>
-            <v-row class="d-flex justify-center mt-12">
-                <p class="font-weight-bold" style="font-size: 10vw" :style="text_Theme">
-                    {{ dataObj.machineNum_Today }}
-                </p>
+            <v-row
+                :style="text_Theme"
+                class="d-flex justify-center font-weight-bold mt-9"
+                style="font-size: 8vmax"
+            >
+                {{ dataObj.machineNum_Today }}
             </v-row>
-            <v-row class="d-flex justify-center mt-14">
-                <p class="font-weight-light" style="font-size: 1vw">Machine</p>
-            </v-row>
-            <v-row class="d-flex justify-center ma-0">
-                <caption class="font-italic font-weight-thin" style="font-size: 0.8vw">
-                    Changes is compared to last month data.
-                </caption>
+            <v-row class="d-flex justify-center mt-15 font-weight-light text-lg-h6"> Machine</v-row>
+            <v-row
+                class="d-flex justify-center font-italic font-weight-thin text-md-caption text-lg-body-2"
+            >
+                Changes is compared to last month data.
             </v-row>
         </v-card-text>
     </v-card>
@@ -62,12 +66,21 @@ export default {
                 background: this.dataObj.themeColor,
             };
         },
+        height() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'md':
+                    return 230;
+                case 'lg':
+                    return 250;
+                case 'xl':
+                    return 300;
+            }
+        },
     },
 
     data() {
         return {
-            diferencePercentage: (
-                this.dataObj.machineNum_Today - this.dataObj.machineNum_Ytd)
+            differencePercentage: this.dataObj.machineNum_Today - this.dataObj.machineNum_Ytd,
         };
     },
     methods: {
