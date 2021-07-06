@@ -79,6 +79,9 @@ Highcharts.setOptions({
     },
 });
 
+Vue.config.debug = true;
+Vue.config.devtools = true;
+
 new Vue({
     router,
     store,

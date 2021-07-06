@@ -11,7 +11,6 @@
             <span class="mb-2 pa-0 pl-6 pr-6 subtitle-1 font-weight-regular rounded-t-lg blue">{{
                 getCurrentSelectedPlant
             }}</span>
-            <h2 class="pa-0 ma-0 ml-4 font-weight-black">Predictive Maintenance Dashboard</h2>
         </v-row>
 
         <v-row class="ma-1 d-flex justify-space-between">

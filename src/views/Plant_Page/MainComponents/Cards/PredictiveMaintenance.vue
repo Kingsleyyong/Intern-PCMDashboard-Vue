@@ -54,7 +54,7 @@ import { mapGetters } from 'vuex';
 export default {
     computed: {
         ...mapGetters(['getPredictedFactor', 'getPredictPlantMachine']),
-        height () {
+        height() {
             switch (this.$vuetify.breakpoint.name) {
                 case 'md':
                     return 335;

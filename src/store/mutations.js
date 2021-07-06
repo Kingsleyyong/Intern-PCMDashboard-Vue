@@ -41,6 +41,7 @@ export default {
         state.account[0].location.lon = longitude;
         state.account[0].location.lat = latitude;
         let newPlantList = [];
+
         data.groupIds.forEach((item) => {
             const lastChar = item.slice(-1);
             newPlantList[lastChar - 1] = { plantId: item, data: state.plant[0].data };

@@ -67,10 +67,13 @@ export default {
         commit('settingsData', obj);
     },
     async getConfig({ commit }) {
-        api.get('/config').then((response) => {
+        await api.get('/config').then((response) => {
             commit('SET_CONFIG', response.data.data);
         });
     },
+    async setCurrentSelectedPlant({commit}, data){
+        commit('SET_SELECTED_PLANT', data)
+    }
     // async getBenmarkData({ commit }, data) {
     //     console.log(data);
     //     commit('SET_BENCHMARK', data);

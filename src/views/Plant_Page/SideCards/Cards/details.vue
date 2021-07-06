@@ -53,14 +53,15 @@
 import { mapGetters } from 'vuex';
 
 export default {
+
     name: 'Details_SideCard',
 
     computed: {
         ...mapGetters(['getMeterDetails']),
     },
 
-    mounted() {
-        this.$store.dispatch('getMeterDetail');
+    beforeMount() {
+        this.$store.dispatch('getConfig');
     },
 };
 </script>

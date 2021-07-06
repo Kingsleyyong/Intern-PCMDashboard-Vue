@@ -1,32 +1,33 @@
 <template>
     <v-row class="ma-0">
-        <v-tabs class="" center-active>
+        <v-tabs center-active v-model="getPlantCount[0].plantId">
             <div
                 class="headline font-weight-black white--text ml-3 mr-3 ma-1 pa-1 pl-8 pr-8 rounded"
                 :style="bg_Theme"
             >
-                {{ plantId }}
+                {{ getCurrentSelectedPlant }}
             </div>
             <v-tabs-slider :style="bg_Theme" />
             <v-tab
-                v-for="tag of list"
-                :key="tag"
-                v-on:click="$emit('setCurrentPlantORMachine', tag)"
+                v-for="plant of getPlantCount"
+                :key="plant.plantId"
+                v-on:click="$emit('setCurrentPlantORMachine', plant.plantId)"
                 class="ml-2 mr-2"
                 :style="text_Theme"
             >
-                {{ tag }}
+                {{ plant.plantId }}
             </v-tab>
         </v-tabs>
     </v-row>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex';
 
+export default {
     name: 'Toolbar',
 
-    props: ['list', 'plantId', 'themeColor'],
+    props: ['themeColor'],
 
     computed: {
         bg_Theme() {
@@ -39,6 +40,7 @@ export default {
                 color: this.themeColor,
             };
         },
+        ...mapGetters(['getPlantCount', 'getCurrentSelectedPlant']),
     },
 };
 </script>

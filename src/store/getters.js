@@ -4,7 +4,7 @@ export default {
     getPlantCount(state) {
         let array = [];
         state.plant.forEach((item) => {
-            array.push(item.plantId);
+            array.push({ plantId: item.plantId });
         });
 
         // for (let i = state.plant[0].plantId; i <= 15; i++) {
@@ -13,7 +13,6 @@ export default {
         // }
         return array;
     },
-
     getUsername(state) {
         return state.account[0].username;
     },
